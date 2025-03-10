@@ -1,0 +1,43 @@
+01:29:39.478 [pool-3-thread-2] ERROR fun.luqing.DMW2 - [processMessage,140] - 处理消息异常
+org.json.JSONException: JSONObject["sub_type"] not found.
+	at org.json.JSONObject.get(JSONObject.java:568)
+	at org.json.JSONObject.getString(JSONObject.java:855)
+	at fun.luqing.Utils.Message.Notice.<init>(Notice.java:19)
+	at fun.luqing.Plugin.Plugin.register(Plugin.java:16)
+	at fun.luqing.Plugin.Plugin.<init>(Plugin.java:12)
+	at fun.luqing.WebSocket.WebSocket.processMessage(WebSocket.java:138)
+	at fun.luqing.WebSocket.WebSocket$1.lambda$onMessage$0(WebSocket.java:90)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+01:31:39.113 [pool-3-thread-2] ERROR fun.luqing.DMW2 - [processMessage,140] - 处理消息异常
+org.json.JSONException: JSONObject["sub_type"] not found.
+	at org.json.JSONObject.get(JSONObject.java:568)
+	at org.json.JSONObject.getString(JSONObject.java:855)
+	at fun.luqing.Utils.Message.Notice.<init>(Notice.java:19)
+	at fun.luqing.Plugin.Plugin.register(Plugin.java:16)
+	at fun.luqing.Plugin.Plugin.<init>(Plugin.java:12)
+	at fun.luqing.WebSocket.WebSocket.processMessage(WebSocket.java:138)
+	at fun.luqing.WebSocket.WebSocket$1.lambda$onMessage$0(WebSocket.java:90)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+01:37:15.425 [main] ERROR fun.luqing.DMW2 - [get,57] - 获取好友列表时发生异常
+org.json.JSONException: JSONObject["friends"] not found.
+	at org.json.JSONObject.get(JSONObject.java:568)
+	at org.json.JSONObject.getJSONArray(JSONObject.java:761)
+	at fun.luqing.ApiConnector.User.GetFriendList.get(GetFriendList.java:48)
+	at fun.luqing.DMW2.main(DMW2.java:17)
+01:37:15.434 [main] ERROR fun.luqing.DMW2 - [main,19] - 程序启动失败
+java.lang.Exception: 获取好友列表失败
+	at fun.luqing.ApiConnector.User.GetFriendList.get(GetFriendList.java:58)
+	at fun.luqing.DMW2.main(DMW2.java:17)
+Caused by: org.json.JSONException: JSONObject["friends"] not found.
+	at org.json.JSONObject.get(JSONObject.java:568)
+	at org.json.JSONObject.getJSONArray(JSONObject.java:761)
+	at fun.luqing.ApiConnector.User.GetFriendList.get(GetFriendList.java:48)
+	... 1 common frames omitted

@@ -1,0 +1,18 @@
+00:12:51.754 [WebSocketConnectReadThread-46] INFO  fun.luqing.DMW2 - [onOpen,80] - [32m连接成功[0m
+00:12:51.758 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+00:12:51.974 [main] INFO  fun.luqing.DMW2 - [get,32] - 成功获取30个群成员，状态: ok
+01:00:26.418 [WebSocketConnectReadThread-46] INFO  fun.luqing.DMW2 - [onOpen,80] - [32m连接成功[0m
+01:00:26.420 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+01:00:26.663 [main] INFO  fun.luqing.DMW2 - [get,32] - 成功获取30个群成员，状态: ok
+01:00:43.369 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [handleSongRequest,39] - 接收到点歌指令cyberangle
+01:00:44.744 [pool-3-thread-6] INFO  fun.luqing.DMW2 - [lambda$new$1,21] - ok
+01:01:00.805 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [lambda$send$1,19] - ok
+01:01:33.894 [WebSocketConnectReadThread-46] INFO  fun.luqing.DMW2 - [onOpen,80] - [32m连接成功[0m
+01:01:33.896 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+01:01:34.075 [main] INFO  fun.luqing.DMW2 - [get,32] - 成功获取30个群成员，状态: ok
+01:01:53.329 [pool-3-thread-6] INFO  fun.luqing.DMW2 - [handleSongRequest,39] - 接收到点歌指令cyberangle
+01:01:54.250 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [lambda$new$1,21] - ok
+01:02:06.750 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [lambda$send$1,19] - ok
+01:03:17.852 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [handleSongRequest,39] - 接收到点歌指令春日影
+01:03:19.094 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [lambda$new$1,21] - ok
+01:03:46.266 [pool-3-thread-6] INFO  fun.luqing.DMW2 - [lambda$send$1,19] - ok
