@@ -1,0 +1,5 @@
+20:39:48.175 [WebSocketConnectReadThread-47] INFO  fun.luqing.DMW2 - [onOpen,80] - [32m连接成功[0m
+20:39:48.179 [main] INFO  fun.luqing.DMW2 - [main,20] - WebSocket 客户端已启动
+20:40:06.488 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [speak,60] - 正在合成 符玄:遗民泪尽胡尘里，南望王师又一年
+20:40:06.503 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [speak,86] - 使用版本 v4 失败，尝试下一个…
+20:40:30.946 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [lambda$send$1,19] - ok
