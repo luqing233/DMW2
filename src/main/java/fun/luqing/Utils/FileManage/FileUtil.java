@@ -27,14 +27,14 @@ public class FileUtil {
     public JSONObject readJsonFile(String fileName) {
         File file = new File(directoryPath, fileName);
         if (!file.exists()) {
-            System.out.println("文件不存在：" + file.getAbsolutePath());
+            logger.debug("文件不存在：{}", file.getAbsolutePath());
             return null;
         }
         try (FileReader reader = new FileReader(file)) {
             JSONTokener tokener = new JSONTokener(reader);
             return new JSONObject(tokener);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
             return null;
         }
     }
@@ -51,7 +51,7 @@ public class FileUtil {
         try (FileWriter writer = new FileWriter(file)) {
             writer.write(jsonData.toString(4)); // 格式化输出，缩进 4 空格
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
     }
 
@@ -73,7 +73,7 @@ public class FileUtil {
             Yaml yaml = new Yaml();
             return yaml.load(inputStream);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
             return null;
         }
     }
@@ -91,7 +91,7 @@ public class FileUtil {
             Yaml yaml = new Yaml();
             yaml.dump(yamlData, writer);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
     }
 

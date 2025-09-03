@@ -8,10 +8,12 @@ import org.json.JSONObject;
 
 import java.io.*;
 import java.net.*;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import static fun.luqing.DMW2.logger;
+import static fun.luqing.Utils.Else.NumberToChineseConverter.convertNumbersToChinese;
 
 public class TTS {
 
@@ -24,7 +26,7 @@ public class TTS {
                     Runnable task = taskQueue.take();
                     task.run();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    logger.error(e.getMessage());
                 }
             }
         });
@@ -41,6 +43,7 @@ public class TTS {
         if (idx > 0) {
             String model   = text.substring(0, idx).trim();
             String content = text.substring(idx + trigger.length()).trim();
+            content=convertNumbersToChinese(content);
             //enqueueTask(content, groupId, model);
             String url = speak(content,model);
             if (!url.equals("0") && !url.equals("-1")) {
@@ -56,8 +59,8 @@ public class TTS {
     }
 
     public static String speak(String text, String model) {
-        String[] fallbackVersions = {"v4", "v2Pro", "v2"};
-        logger.info("正在合成 {}:{}",model,text);
+        String[] fallbackVersions = {"v4", "v2Pro","v2ProPlus", "v2"};
+        logger.info("使用模型 {} 合成 ⌈{}⌋ ",model,text);
 
         for (String version : fallbackVersions) {
             JSONObject json = getJsonObject(text, model, version);
@@ -75,7 +78,7 @@ public class TTS {
 
                 //logger.info("{}:{}",model,url);
 
-                return url.replace("http://0.0.0.0:8000/outputs/", "D:\\GSVI_V4\\GPT-SoVITS-0611-cu124\\outputs\\");// 成功！
+                return url.replace("http://0.0.0.0:8000/outputs/", "E:\\SoVITS\\GPT-SoVITS-0725-cu124\\outputs\\");// 成功！
             } catch (java.net.ConnectException
                    | java.net.SocketTimeoutException
                    | java.net.UnknownHostException ioEx) {
@@ -90,18 +93,13 @@ public class TTS {
     }
 
 
-
-
-
-
-
     private static JSONObject getJsonObject(String text, String model, String version) {
         JSONObject json = new JSONObject();
         json.put("model_name", model);
         json.put("prompt_text_lang", "中文");
         json.put("emotion", "默认");
         json.put("text", text);
-        json.put("text_lang", "中英混合");
+        json.put("text_lang", "中文");
         json.put("top_k", 10);
         json.put("top_p", 1);
         json.put("temperature", 1);
@@ -109,7 +107,15 @@ public class TTS {
         json.put("batch_size", 10);
         json.put("batch_threshold", 0.75);
         json.put("split_bucket", true);
-        json.put("speed_facter", 1);
+
+
+        if(model.equals("银狼")) {
+            json.put("speed_facter", 0.95);
+        }else {
+            json.put("speed_facter", 1);
+        }
+
+
         json.put("fragment_interval", 0.3);
         json.put("media_type", "wav");
         json.put("parallel_infer", true);
@@ -131,12 +137,12 @@ public class TTS {
         conn.setDoOutput(true);
 
         try (OutputStream os = conn.getOutputStream()) {
-            byte[] input = jsonInput.getBytes("utf-8");
+            byte[] input = jsonInput.getBytes(StandardCharsets.UTF_8);
             os.write(input, 0, input.length);
         }
 
         try (BufferedReader br = new BufferedReader(
-                new InputStreamReader(conn.getInputStream(), "utf-8"))) {
+                new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8))) {
             StringBuilder response = new StringBuilder();
             String responseLine;
 

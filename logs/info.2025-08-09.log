@@ -1,0 +1,58 @@
+23:10:46.908 [WebSocketConnectReadThread-46] INFO  fun.luqing.DMW2 - [onOpen,80] - [32m连接成功[0m
+23:10:46.912 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+23:11:54.767 [WebSocketConnectReadThread-46] INFO  fun.luqing.DMW2 - [onOpen,80] - [32m连接成功[0m
+23:11:54.768 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+23:12:02.272 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: 鹿晴:你好
+23:12:07.902 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [speak,62] - 正在合成 银狼:要...要一起玩游戏吗？
+23:12:08.006 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [speak,88] - 使用版本 v4 失败，尝试下一个…
+23:12:08.015 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [speak,88] - 使用版本 v2Pro 失败，尝试下一个…
+23:12:17.682 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [lambda$send$1,19] - ok
+23:13:55.128 [WebSocketConnectReadThread-46] INFO  fun.luqing.DMW2 - [onOpen,80] - [32m连接成功[0m
+23:13:55.129 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+23:14:02.074 [pool-3-thread-2] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: 鹿晴:你好
+23:14:02.502 [pool-3-thread-2] INFO  fun.luqing.DMW2 - [speak,62] - 正在合成 银狼:抱歉，处理回复时出错了
+23:14:02.511 [pool-3-thread-2] INFO  fun.luqing.DMW2 - [speak,88] - 使用版本 v4 失败，尝试下一个…
+23:14:02.514 [pool-3-thread-2] INFO  fun.luqing.DMW2 - [speak,88] - 使用版本 v2Pro 失败，尝试下一个…
+23:14:10.543 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [lambda$send$1,19] - ok
+23:16:39.958 [WebSocketConnectReadThread-46] INFO  fun.luqing.DMW2 - [onOpen,80] - [32m连接成功[0m
+23:16:39.960 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+23:16:44.474 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: 鹿晴:你好
+23:16:44.857 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [speak,62] - 正在合成 银狼:抱歉，处理回复时出错了
+23:16:44.864 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [speak,88] - 使用版本 v4 失败，尝试下一个…
+23:16:44.867 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [speak,88] - 使用版本 v2Pro 失败，尝试下一个…
+23:16:52.871 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [lambda$send$1,19] - ok
+23:25:30.646 [WebSocketConnectReadThread-31] INFO  fun.luqing.DMW2 - [onOpen,80] - [32m连接成功[0m
+23:25:30.647 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+23:25:38.248 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: 鹿晴:你好
+23:25:41.897 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [speak,62] - 正在合成 银狼:你好。
+23:25:41.905 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [speak,88] - 使用版本 v4 失败，尝试下一个…
+23:25:41.909 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [speak,88] - 使用版本 v2Pro 失败，尝试下一个…
+23:25:47.798 [pool-3-thread-6] INFO  fun.luqing.DMW2 - [lambda$send$1,19] - ok
+23:26:00.205 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: 鹿晴:你在干什么
+23:26:04.054 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [speak,62] - 正在合成 银狼:看书。
+23:26:04.058 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [speak,88] - 使用版本 v4 失败，尝试下一个…
+23:26:04.060 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [speak,88] - 使用版本 v2Pro 失败，尝试下一个…
+23:26:09.911 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [lambda$send$1,19] - ok
+23:36:51.342 [WebSocketConnectReadThread-46] INFO  fun.luqing.DMW2 - [onOpen,80] - [32m连接成功[0m
+23:36:51.343 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+23:37:07.510 [WebSocketConnectReadThread-46] INFO  fun.luqing.DMW2 - [onOpen,80] - [32m连接成功[0m
+23:37:07.511 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+23:37:36.396 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [lambda$new$1,21] - ok
+23:37:50.070 [pool-3-thread-2] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: 鹿晴:你好
+23:37:54.485 [pool-3-thread-2] INFO  fun.luqing.DMW2 - [speak,62] - 正在合成 银狼:嗯...你好。
+23:37:54.494 [pool-3-thread-2] INFO  fun.luqing.DMW2 - [speak,88] - 使用版本 v4 失败，尝试下一个…
+23:37:54.497 [pool-3-thread-2] INFO  fun.luqing.DMW2 - [speak,88] - 使用版本 v2Pro 失败，尝试下一个…
+23:38:01.716 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [lambda$send$1,19] - ok
+23:39:18.386 [WebSocketConnectReadThread-46] INFO  fun.luqing.DMW2 - [onOpen,80] - [32m连接成功[0m
+23:39:18.388 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+23:39:23.633 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: 鹿晴:我不太好
+23:39:23.636 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [sendRequest,15] - 正在由DeepSeek处理
+23:39:28.283 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [speak,62] - 正在合成 银狼:需要帮忙吗？
+23:39:28.291 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [speak,88] - 使用版本 v4 失败，尝试下一个…
+23:39:28.295 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [speak,88] - 使用版本 v2Pro 失败，尝试下一个…
+23:39:34.724 [pool-3-thread-6] INFO  fun.luqing.DMW2 - [lambda$send$1,19] - ok
+23:39:52.188 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [lambda$new$1,21] - ok
+23:43:17.342 [WebSocketConnectReadThread-46] INFO  fun.luqing.DMW2 - [onOpen,80] - [32m连接成功[0m
+23:43:17.344 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+23:45:43.339 [WebSocketConnectReadThread-46] INFO  fun.luqing.DMW2 - [onOpen,80] - [32m连接成功[0m
+23:45:43.340 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动

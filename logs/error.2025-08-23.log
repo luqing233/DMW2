@@ -1,0 +1,3 @@
+01:39:44.702 [pool-3-thread-4] ERROR fun.luqing.DMW2 - [speak,86] - 无法连接本地 TTS 服务: Connection refused: connect
+01:39:44.852 [pool-3-thread-7] ERROR fun.luqing.DMW2 - [speak,86] - 无法连接本地 TTS 服务: Connection refused: connect
+01:39:48.402 [pool-3-thread-1] ERROR fun.luqing.DMW2 - [speak,86] - 无法连接本地 TTS 服务: Connection refused: connect

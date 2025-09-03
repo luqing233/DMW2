@@ -1,0 +1,25 @@
+01:38:38.882 [WebSocketConnectReadThread-44] INFO  fun.luqing.DMW2 - [onOpen,66] - [32mWebSocket 连接成功[0m
+01:38:38.887 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+01:39:28.031 [WebSocketConnectReadThread-46] INFO  fun.luqing.DMW2 - [onOpen,87] - [32m连接成功[0m
+01:39:28.033 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+01:39:41.011 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中:  鹿晴 ⌈⌋
+01:39:41.022 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [sendRequest,16] - 正在由智谱AI处理
+01:39:43.100 [pool-3-thread-7] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中:  鹿晴 ⌈⌋
+01:39:43.109 [pool-3-thread-7] INFO  fun.luqing.DMW2 - [sendRequest,16] - 正在由智谱AI处理
+01:39:44.697 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [speak,63] - 使用模型 银狼 合成 ⌈...你还好吗？⌋ 
+01:39:44.704 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [<init>,12] - 尝试发送回复消息⌈...你还好吗？⌋
+01:39:44.851 [pool-3-thread-7] INFO  fun.luqing.DMW2 - [speak,63] - 使用模型 银狼 合成 ⌈
+你在想什么？⌋ 
+01:39:44.852 [pool-3-thread-7] INFO  fun.luqing.DMW2 - [<init>,12] - 尝试发送回复消息⌈
+你在想什么？⌋
+01:39:45.076 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中:  鹿晴 ⌈⌋
+01:39:45.084 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [sendRequest,16] - 正在由智谱AI处理
+01:39:45.507 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [lambda$new$1,23] - 发送回复消息⌈...你还好吗？⌋成功
+01:39:45.565 [pool-3-thread-10] INFO  fun.luqing.DMW2 - [lambda$new$1,23] - 发送回复消息⌈
+你在想什么？⌋成功
+01:39:48.402 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [speak,63] - 使用模型 银狼 合成 ⌈
+需要安静吗？⌋ 
+01:39:48.403 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [<init>,12] - 尝试发送回复消息⌈
+需要安静吗？⌋
+01:39:48.916 [pool-3-thread-8] INFO  fun.luqing.DMW2 - [lambda$new$1,23] - 发送回复消息⌈
+需要安静吗？⌋成功

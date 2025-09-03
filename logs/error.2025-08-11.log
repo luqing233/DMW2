@@ -1,0 +1,16 @@
+00:50:07.899 [pool-3-thread-3] ERROR fun.luqing.DMW2 - [processMessage,138] - 处理消息异常
+org.json.JSONException: JSONObject["messages"] not found.
+	at org.json.JSONObject.get(JSONObject.java:568)
+	at org.json.JSONObject.getJSONArray(JSONObject.java:761)
+	at fun.luqing.Plugin.Chat.JsonHandler.buildUserMessageJson(JsonHandler.java:34)
+	at fun.luqing.Plugin.Chat.Chat.sendApiRequest(Chat.java:49)
+	at fun.luqing.Plugin.Chat.Chat.<init>(Chat.java:24)
+	at fun.luqing.Plugin.Plugin.register(Plugin.java:33)
+	at fun.luqing.Plugin.Plugin.<init>(Plugin.java:20)
+	at fun.luqing.WebSocket.WebSocket.processMessage(WebSocket.java:136)
+	at fun.luqing.WebSocket.WebSocket$1.lambda$onMessage$0(WebSocket.java:88)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)

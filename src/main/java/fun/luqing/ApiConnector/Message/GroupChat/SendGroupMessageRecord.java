@@ -15,8 +15,11 @@ public class SendGroupMessageRecord {
         });
         PostSender.sendGroupMessage(groupId, message)
                 .thenAccept(record -> {
-                    System.out.println(record.toString());
-                    logger.info(record.getString("status"));
+                    //System.out.println(record.toString());
+                    if (record.getString("status").equals("ok")) {
+                        logger.info("发送语音文件 ⌈{}⌋ 成功",url);
+                    }
+
                 })
                 .exceptionally(e -> {
                     logger.error("发送群消息出现异常", e);

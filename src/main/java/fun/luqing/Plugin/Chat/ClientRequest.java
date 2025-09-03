@@ -1,4 +1,4 @@
-package fun.luqing.Plugin.DeepSeek;
+package fun.luqing.Plugin.Chat;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -10,18 +10,18 @@ import org.apache.http.util.EntityUtils;
 
 import static fun.luqing.DMW2.logger;
 
-public class ClientDeepSeek {
+public class ClientRequest {
 
     /**
-     * 发送POST请求到DashScope API
-     * @param apiUrl API地址
-     * @param apiKey 认证密钥
-     * @param jsonBody 请求体JSON字符串
-     * @return API响应内容 或 null（请求失败时）
+     * 发送 POST 请求
+     * @param url 请求的 URL
+     * @param apiKey API Key
+     * @param jsonBody 请求的 JSON 数据
+     * @return 返回响应内容
      */
-    public static String sendRequest(String apiUrl, String apiKey, String jsonBody) {
+    public static String sendPostRequest(String url, String apiKey, String jsonBody) {
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
-            HttpPost httpPost = new HttpPost(apiUrl);
+            HttpPost httpPost = new HttpPost(url);
 
             // 设置请求头
             httpPost.setHeader("Authorization", "Bearer " + apiKey);
@@ -29,22 +29,19 @@ public class ClientDeepSeek {
 
             // 设置请求体
             httpPost.setEntity(new StringEntity(jsonBody, "UTF-8"));
-            logger.info("等待DeepSeek回复");
 
             // 发送请求并获取响应
             HttpResponse response = httpClient.execute(httpPost);
-            HttpEntity responseEntity = response.getEntity();
+            HttpEntity entity = response.getEntity();
 
-            // 处理响应内容
-            if (responseEntity != null) {
-                String result = EntityUtils.toString(responseEntity);
-                System.out.println(result);
-                return result;
+            // 解析响应内容
+            if (entity != null) {
+                return EntityUtils.toString(entity);
             }
             return null;
         } catch (Exception e) {
-            logger.error( "与DeepSeek链接出错",e);
-            return null;
+            logger.error(e.getMessage());
+            return "请求失败";
         }
     }
 }

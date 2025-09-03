@@ -17,26 +17,48 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class WebSocket {
     private static volatile WebSocket instance;
-    private static final long RECONNECT_DELAY_MS = 5000;     // 重连间隔
+
+    private static final long RECONNECT_DELAY_MS = 5000;       // 重连间隔
     private static final long CONNECT_TIMEOUT_MS = 5000;       // 连接超时时间
-    private static final long RESPONSE_TIMEOUT_MS = 50000;      // 消息响应超时
+    private static final long RESPONSE_TIMEOUT_MS = 150_000;   // 消息响应超时
+    private static final int MESSAGE_QUEUE_LIMIT = 500;        // 离线消息最大缓存
+    private static final int PENDING_REQUEST_LIMIT = 5000;     // 请求缓存最大容量
 
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-    private final ExecutorService executorService = Executors.newFixedThreadPool(6);
 
-    // 请求ID与响应的关联
-    private final ConcurrentMap<String, CompletableFuture<JSONObject>> pendingRequests = new ConcurrentHashMap<>();
-    // 离线消息队列：在连接断开时保存待发送消息
-    private final BlockingQueue<String> messageQueue = new LinkedBlockingQueue<>();
-    // 防止多次重连任务同时执行
+    // 插件任务线程池（核心 14，最大 28，队列 200）
+    private final ThreadPoolExecutor executorService = new ThreadPoolExecutor(
+            14,
+            28,
+            60L, TimeUnit.SECONDS,
+            new LinkedBlockingQueue<>(200),
+            new ThreadPoolExecutor.CallerRunsPolicy()
+    );
+
+    // 请求 ID 与响应的关联（带 TTL）
+    private final ConcurrentMap<String, TimedFuture> pendingRequests = new ConcurrentHashMap<>();
+
+    // 离线消息队列（有限大小）
+    private final BlockingQueue<String> messageQueue = new LinkedBlockingQueue<>(MESSAGE_QUEUE_LIMIT);
+
     private final AtomicBoolean isReconnecting = new AtomicBoolean(false);
-
-    // 每次连接时使用新的 CountDownLatch 等待连接建立
     private CountDownLatch latch;
     private volatile WebSocketClient client;
 
-    // 私有构造方法
+    // 内部类：包装 future 和创建时间，便于过期清理
+    private static class TimedFuture {
+        final CompletableFuture<JSONObject> future;
+        final long createTime;
+
+        TimedFuture(CompletableFuture<JSONObject> future) {
+            this.future = future;
+            this.createTime = System.currentTimeMillis();
+        }
+    }
+
     private WebSocket() {
+        // 定期清理超时的 pendingRequests，避免 OOM
+        scheduler.scheduleAtFixedRate(this::cleanupPendingRequests, 1, 30, TimeUnit.SECONDS);
     }
 
     public static WebSocket getInstance() {
@@ -50,20 +72,13 @@ public class WebSocket {
         return instance;
     }
 
-    /**
-     * 对外公开的连接入口
-     */
     public void WSconnect() {
         connect();
     }
 
-    /**
-     * 建立 WebSocket 连接
-     */
     private void connect() {
         latch = new CountDownLatch(1);
         try {
-            // 如果存在旧的连接，则先关闭
             if (client != null) {
                 try {
                     client.close();
@@ -84,7 +99,6 @@ public class WebSocket {
 
                 @Override
                 public void onMessage(String message) {
-                    //logger.info("接收到消息: {}", message);
                     executorService.submit(() -> processMessage(message));
                 }
 
@@ -102,7 +116,6 @@ public class WebSocket {
 
             client.connect();
 
-            // 等待连接建立，超时后进行重连
             if (!latch.await(CONNECT_TIMEOUT_MS, TimeUnit.MILLISECONDS)) {
                 logger.warn("WebSocket 连接超时，尝试重连...");
                 handleReconnect();
@@ -116,32 +129,30 @@ public class WebSocket {
         }
     }
 
-    /**
-     * 处理接收到的消息
-     *
-     * @param message 消息字符串
-     */
     private void processMessage(String message) {
         try {
             JSONObject response = new JSONObject(message);
-            // 根据 echo 字段匹配请求
+
+            // 处理 echo 响应
             String responseId = response.optString("echo", null);
             if (responseId != null) {
-                CompletableFuture<JSONObject> future = pendingRequests.remove(responseId);
-                if (future != null) {
-                    future.complete(response);
+                TimedFuture timed = pendingRequests.remove(responseId);
+                if (timed != null) {
+                    timed.future.complete(response);
+                    return; // 响应消息不再进入插件
                 }
             }
-            // 调用插件处理消息
-            new Plugin(message);
+
+            // 并行执行插件任务
+            for (Runnable plugin : Plugin.getPlugins(response)) {
+                executorService.submit(plugin);
+            }
+
         } catch (Exception e) {
             logger.error("处理消息异常", e);
         }
     }
 
-    /**
-     * 发送离线消息队列中的所有消息
-     */
     private void flushMessageQueue() {
         String msg;
         while ((msg = messageQueue.poll()) != null) {
@@ -154,9 +165,6 @@ public class WebSocket {
         }
     }
 
-    /**
-     * 重连处理，防止多次重连任务同时执行
-     */
     private void handleReconnect() {
         if (isReconnecting.compareAndSet(false, true)) {
             scheduler.schedule(() -> {
@@ -170,37 +178,28 @@ public class WebSocket {
         }
     }
 
-    /**
-     * 发送消息，并返回一个 CompletableFuture 用于异步获取响应（带超时控制）。
-     * 利用消息 ID 关联请求与响应。
-     *
-     * @param message 消息内容（JSON 格式字符串）
-     * @return CompletableFuture 对象，返回 JSONObject 格式的响应
-     */
     public CompletableFuture<JSONObject> sendMessage(String message) {
-        // 生成唯一消息 ID，并添加到消息体中
         String messageId = UUID.randomUUID().toString();
         JSONObject jsonMessage = new JSONObject(message);
         jsonMessage.put("echo", messageId);
         String finalMessage = jsonMessage.toString();
 
         CompletableFuture<JSONObject> future = new CompletableFuture<>();
-        pendingRequests.put(messageId, future);
+        pendingRequests.put(messageId, new TimedFuture(future));
 
         // 超时控制
         future.orTimeout(RESPONSE_TIMEOUT_MS, TimeUnit.MILLISECONDS)
-                .whenComplete((result, throwable) -> {
-                    if (throwable != null) {
-                        pendingRequests.remove(messageId);
-                    }
-                });
+                .whenComplete((result, throwable) -> pendingRequests.remove(messageId));
+
         try {
             if (client != null && client.isOpen()) {
                 client.send(finalMessage);
             } else {
-                // 如果连接未就绪，则将消息入队等待后续发送
-                messageQueue.offer(finalMessage);
-                logger.warn("连接未就绪，消息已入队等待发送: {}", finalMessage);
+                if (!messageQueue.offer(finalMessage)) {
+                    logger.warn("离线消息队列已满，丢弃消息: {}", finalMessage);
+                } else {
+                    logger.warn("连接未就绪，消息已入队等待发送: {}", finalMessage);
+                }
             }
         } catch (Exception e) {
             pendingRequests.remove(messageId);
@@ -210,9 +209,19 @@ public class WebSocket {
         return future;
     }
 
-    /**
-     * 关闭 WebSocket 连接以及相关线程池
-     */
+    private void cleanupPendingRequests() {
+        long now = System.currentTimeMillis();
+        if (pendingRequests.size() > PENDING_REQUEST_LIMIT) {
+            logger.warn("pendingRequests 超过限制，开始清理");
+        }
+        pendingRequests.forEach((id, timed) -> {
+            if (timed.future.isDone() ||
+                    now - timed.createTime > RESPONSE_TIMEOUT_MS) {
+                pendingRequests.remove(id);
+            }
+        });
+    }
+
     public void close() {
         if (client != null) {
             try {
@@ -225,12 +234,6 @@ public class WebSocket {
         shutdownExecutor(scheduler, "scheduler");
     }
 
-    /**
-     *关闭线程池
-     *
-     * @param executor 线程池实例
-     * @param name     线程池名称
-     */
     private void shutdownExecutor(ExecutorService executor, String name) {
         executor.shutdown();
         try {
@@ -242,5 +245,26 @@ public class WebSocket {
             executor.shutdownNow();
             Thread.currentThread().interrupt();
         }
+    }
+
+    //获取运行状态（线程池 + 队列）
+    public String getStatus() {
+        return String.format(
+                """
+                        线程池状态:
+                            活跃线程=%d
+                            池中线程=%d
+                            队列大小=%d
+                            已完成任务=%d
+                            总任务数=%d
+                        请求缓存=%d, 离线消息队列=%d""",
+                executorService.getActiveCount(),
+                executorService.getPoolSize(),
+                executorService.getQueue().size(),
+                executorService.getCompletedTaskCount(),
+                executorService.getTaskCount(),
+                pendingRequests.size(),
+                messageQueue.size()
+        );
     }
 }
