@@ -1,0 +1,122 @@
+22:03:16.574 [WebSocketConnectReadThread-44] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+22:03:16.578 [main] INFO  fun.luqing.DMW2 - [main,15] - WebSocket 客户端已启动
+22:04:42.040 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: [狐言鹿语(688595279)] 莉拉提娅 ⌈ciallo⌋
+22:04:42.051 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [sendRequest,19] - 正在由 Gemini API 处理
+22:04:49.820 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈Ciallo。这个词……听起来挺有活力的。⌋
+22:04:50.338 [pool-3-thread-7] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈Ciallo。这个词……听起来挺有活力的。⌋成功
+22:11:09.050 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+22:11:09.051 [main] INFO  fun.luqing.DMW2 - [main,15] - WebSocket 客户端已启动
+22:15:50.100 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+22:15:50.101 [main] INFO  fun.luqing.DMW2 - [main,15] - WebSocket 客户端已启动
+22:24:11.603 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+22:24:11.605 [main] INFO  fun.luqing.DMW2 - [main,15] - WebSocket 客户端已启动
+22:33:30.542 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+22:33:30.543 [main] INFO  fun.luqing.DMW2 - [main,15] - WebSocket 客户端已启动
+22:36:54.425 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+22:36:54.427 [main] INFO  fun.luqing.DMW2 - [main,15] - WebSocket 客户端已启动
+22:37:01.527 [pool-3-thread-8] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈莉拉提娅 已经是 admin⌋
+22:37:02.219 [pool-3-thread-10] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈莉拉提娅 已经是 admin⌋成功
+22:37:15.429 [pool-3-thread-10] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈修改模型为gemini⌋
+22:37:15.974 [pool-3-thread-14] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈修改模型为gemini⌋成功
+22:41:45.205 [pool-3-thread-12] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈已添加 AAA山洞阴暗料理批发 为 admin⌋
+22:41:45.882 [pool-3-thread-6] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈已添加 AAA山洞阴暗料理批发 为 admin⌋成功
+22:43:21.117 [pool-3-thread-13] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: [符青贴贴群2(691943485)] 鹿晴 ⌈ciallo~⌋
+22:43:21.127 [pool-3-thread-13] INFO  fun.luqing.DMW2 - [sendRequest,19] - 正在由 Gemini API 处理
+22:43:26.981 [pool-3-thread-13] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈未解析到有效的 Gemini 回复⌋
+22:43:27.547 [pool-3-thread-7] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈未解析到有效的 Gemini 回复⌋成功
+22:43:48.512 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: [符青贴贴群2(691943485)] 鹿晴 ⌈曼波~⌋
+22:43:48.521 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [sendRequest,19] - 正在由 Gemini API 处理
+22:43:53.526 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈曼波... 听起来很轻松。你今天心情不错吗，鹿晴？⌋
+22:43:54.055 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈曼波... 听起来很轻松。你今天心情不错吗，鹿晴？⌋成功
+22:45:23.922 [pool-3-thread-2] INFO  fun.luqing.DMW2 - [sendApiRequest,134] - 发送涩图 API 请求到：https://api.lolicon.app/setu/v2
+22:45:23.923 [pool-3-thread-2] INFO  fun.luqing.DMW2 - [sendApiRequest,135] - 请求 JSON 内容：{"proxy":"i.pixiv.re","level":"0-6","num":1,"r18":0,"ai":2,"tag":["大黑塔"],"full":0}
+22:45:24.695 [pool-3-thread-2] INFO  fun.luqing.DMW2 - [sendApiRequest,143] - API 响应状态码：200
+22:45:24.696 [pool-3-thread-2] INFO  fun.luqing.DMW2 - [sendApiRequest,152] - API 返回内容：{"error":"","data":[{"pid":126345892,"p":0,"uid":17580474,"title":"大黑塔","author":"Po777","r18":false,"width":1872,"height":2736,"tags":["ヘルタ(スターレイル)","黑塔（星穹铁道）","崩壊スターレイル","崩坏：星穹铁道","ヘルタ","黑塔","崩坏星穹铁道","Honkai: Star Rail","AIイラスト","AI 画作","黒タイツ","黑裤袜","タイツ越しのパンツ","穿透丝袜的内裤","マダム・ヘルタ","大黑塔","ぱんつ","胖次","紫下着","purple lingerie"],"ext":"png","aiType":1,"uploadDate":1737209174000,"urls":{"original":"https://i.pixiv.re/img-original/img/2025/01/18/23/06/14/126345892_p0.png"}}]}
+22:47:54.715 [CompletableFutureDelayScheduler] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈图片发送失败，可能是网络波动或资源已迁移⌋
+22:47:54.716 [CompletableFutureDelayScheduler] INFO  fun.luqing.DMW2 - [lambda$handleApiResponse$0,257] - 发送失败
+22:47:55.297 [pool-3-thread-7] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈图片发送失败，可能是网络波动或资源已迁移⌋成功
+22:49:31.012 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: [符青贴贴群2(691943485)] 鹊 ⌈我嘞个⌋
+22:49:31.012 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈接下来将由gemini回答，本提示仅在创建上下文记录时提示。如遇意外情况，可使用/clear重置上下文⌋
+22:49:31.013 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [sendRequest,19] - 正在由 Gemini API 处理
+22:49:31.717 [pool-3-thread-9] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈接下来将由gemini回答，本提示仅在创建上下文记录时提示。如遇意外情况，可使用/clear重置上下文⌋成功
+22:49:32.404 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈未解析到有效的 Gemini 回复⌋
+22:49:32.974 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈未解析到有效的 Gemini 回复⌋成功
+22:51:31.237 [pool-3-thread-8] INFO  fun.luqing.DMW2 - [sendApiRequest,134] - 发送涩图 API 请求到：https://api.lolicon.app/setu/v2
+22:51:31.237 [pool-3-thread-8] INFO  fun.luqing.DMW2 - [sendApiRequest,135] - 请求 JSON 内容：{"proxy":"i.pixiv.re","level":"0-6","num":1,"r18":0,"ai":2,"tag":["大黑塔"],"full":0}
+22:51:32.193 [pool-3-thread-8] INFO  fun.luqing.DMW2 - [sendApiRequest,143] - API 响应状态码：200
+22:51:32.194 [pool-3-thread-8] INFO  fun.luqing.DMW2 - [sendApiRequest,152] - API 返回内容：{"error":"","data":[{"pid":124585295,"p":0,"uid":4119858,"title":"マダム・ヘルタ🗝️","author":"NEKOYA (ネコヤ)","r18":false,"width":3300,"height":5100,"tags":["マダム・ヘルタ","大黑塔","ヘルタ","黑塔","崩壊スターレイル","崩坏：星穹铁道","崩壊:スターレイル","Honkai: Star Rail","Herta","背中","后背"],"ext":"png","aiType":1,"uploadDate":1732418062000,"urls":{"original":"https://i.pixiv.re/img-original/img/2024/11/24/12/14/22/124585295_p0.png"}}]}
+22:51:38.708 [pool-3-thread-9] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈线程池状态:
+    活跃线程=1
+    池中线程=14
+    队列大小=0
+    已完成任务=4475
+    总任务数=4476
+请求缓存=1, 离线消息队列=0⌋
+22:51:39.372 [pool-3-thread-8] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈线程池状态:
+    活跃线程=1
+    池中线程=14
+    队列大小=0
+    已完成任务=4475
+    总任务数=4476
+请求缓存=1, 离线消息队列=0⌋成功
+22:54:02.199 [CompletableFutureDelayScheduler] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈图片发送失败，可能是网络波动或资源已迁移⌋
+22:54:02.200 [CompletableFutureDelayScheduler] INFO  fun.luqing.DMW2 - [lambda$handleApiResponse$0,257] - 发送失败
+22:54:02.867 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈图片发送失败，可能是网络波动或资源已迁移⌋成功
+22:58:37.211 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+22:58:37.213 [main] INFO  fun.luqing.DMW2 - [main,15] - WebSocket 客户端已启动
+22:58:47.441 [pool-3-thread-12] INFO  fun.luqing.DMW2 - [sendApiRequest,134] - 发送涩图 API 请求到：https://api.lolicon.app/setu/v2
+22:58:47.441 [pool-3-thread-12] INFO  fun.luqing.DMW2 - [sendApiRequest,135] - 请求 JSON 内容：{"proxy":"i.pixiv.re","level":"0-6","num":1,"r18":0,"ai":2,"tag":["大黑塔"],"full":0}
+22:58:48.970 [pool-3-thread-12] INFO  fun.luqing.DMW2 - [sendApiRequest,143] - API 响应状态码：200
+22:58:48.971 [pool-3-thread-12] INFO  fun.luqing.DMW2 - [sendApiRequest,152] - API 返回内容：{"error":"","data":[{"pid":130358439,"p":0,"uid":17696303,"title":"大黑塔·魅惑の谷間（其七）","author":"八重嘤嘤桜","r18":false,"width":2048,"height":3072,"tags":["崩坏星穹铁道","Honkai: Star Rail","崩壊スターレイル","崩坏：星穹铁道","マダム・ヘルタ","大黑塔","TheHerta","黒スト","黑丝袜","魅惑の谷間","魅惑的乳沟"],"ext":"png","aiType":2,"uploadDate":1747108803000,"urls":{"original":"https://i.pixiv.re/img-original/img/2025/05/13/13/00/03/130358439_p0.png"}}]}
+23:01:18.989 [CompletableFutureDelayScheduler] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈图片发送失败，可能是网络波动或资源已迁移⌋
+23:01:18.991 [CompletableFutureDelayScheduler] INFO  fun.luqing.DMW2 - [lambda$handleApiResponse$0,257] - 发送失败
+23:01:19.544 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈图片发送失败，可能是网络波动或资源已迁移⌋成功
+23:05:10.258 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+23:05:10.260 [main] INFO  fun.luqing.DMW2 - [main,15] - WebSocket 客户端已启动
+23:05:18.776 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [sendApiRequest,134] - 发送涩图 API 请求到：https://sex.nyan.run/api/v2/
+23:05:18.777 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [sendApiRequest,135] - 请求 JSON 内容：{"proxy":"i.pixiv.re","level":"0-6","num":1,"r18":0,"ai":2,"tag":["大黑塔"],"full":0}
+23:05:20.224 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [sendApiRequest,143] - API 响应状态码：404
+23:05:20.225 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈API请求失败：https://sex.nyan.run/api/v2/⌋
+23:05:20.232 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [sendApiRequest,142] - 发送涩图 API 请求到：https://lolisuki.cn/api/setu/v1
+23:05:20.233 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [sendApiRequest,143] - 请求 JSON 内容：{"proxy":"i.pixiv.re","level":"0-6","num":1,"r18":0,"ai":2,"tag":["大黑塔"],"full":0}
+23:05:20.840 [pool-3-thread-2] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈API请求失败：https://sex.nyan.run/api/v2/⌋成功
+23:05:30.907 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈API请求失败：Read timed out⌋
+23:05:31.534 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈API请求失败：Read timed out⌋成功
+23:07:40.574 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+23:07:40.575 [main] INFO  fun.luqing.DMW2 - [main,15] - WebSocket 客户端已启动
+23:07:43.602 [pool-3-thread-14] INFO  fun.luqing.DMW2 - [sendApiRequest,135] - 发送涩图 API 请求到：https://sex.nyan.run/api/v2/
+23:07:43.603 [pool-3-thread-14] INFO  fun.luqing.DMW2 - [sendApiRequest,136] - 请求 JSON 内容：{"num":1,"tag":["大黑塔"]}
+23:07:45.650 [pool-3-thread-14] INFO  fun.luqing.DMW2 - [sendApiRequest,144] - API 响应状态码：404
+23:07:45.651 [pool-3-thread-14] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈API请求失败：https://sex.nyan.run/api/v2/⌋
+23:07:45.657 [pool-3-thread-14] INFO  fun.luqing.DMW2 - [sendApiRequest,142] - 发送涩图 API 请求到：https://lolisuki.cn/api/setu/v1
+23:07:45.657 [pool-3-thread-14] INFO  fun.luqing.DMW2 - [sendApiRequest,143] - 请求 JSON 内容：{"proxy":"i.pixiv.re","level":"0-6","num":1,"r18":0,"ai":2,"tag":["大黑塔"],"full":0}
+23:07:46.232 [pool-3-thread-6] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈API请求失败：https://sex.nyan.run/api/v2/⌋成功
+23:07:56.044 [pool-3-thread-14] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈API请求失败：Read timed out⌋
+23:07:56.586 [pool-3-thread-9] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈API请求失败：Read timed out⌋成功
+23:08:04.219 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+23:08:04.220 [main] INFO  fun.luqing.DMW2 - [main,15] - WebSocket 客户端已启动
+23:08:10.906 [pool-3-thread-8] INFO  fun.luqing.DMW2 - [sendApiRequest,135] - 发送涩图 API 请求到：https://sex.nyan.run/api/v2/
+23:08:10.906 [pool-3-thread-8] INFO  fun.luqing.DMW2 - [sendApiRequest,136] - 请求 JSON 内容：{"num":1,"tag":["大黑塔"]}
+23:08:12.171 [pool-3-thread-8] INFO  fun.luqing.DMW2 - [sendApiRequest,144] - API 响应状态码：404
+23:08:12.172 [pool-3-thread-8] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈API请求失败：https://sex.nyan.run/api/v2/⌋
+23:08:12.179 [pool-3-thread-8] INFO  fun.luqing.DMW2 - [sendApiRequest,142] - 发送涩图 API 请求到：https://lolisuki.cn/api/setu/v1
+23:08:12.179 [pool-3-thread-8] INFO  fun.luqing.DMW2 - [sendApiRequest,143] - 请求 JSON 内容：{"proxy":"i.pixiv.re","level":"0-6","num":1,"r18":0,"ai":2,"tag":["大黑塔"],"full":0}
+23:08:12.709 [pool-3-thread-7] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈API请求失败：https://sex.nyan.run/api/v2/⌋成功
+23:08:22.595 [pool-3-thread-8] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈API请求失败：Read timed out⌋
+23:08:23.169 [pool-3-thread-9] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈API请求失败：Read timed out⌋成功
+23:08:55.719 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [sendApiRequest,135] - 发送涩图 API 请求到：https://sex.nyan.run/api/v2/
+23:08:55.720 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [sendApiRequest,136] - 请求 JSON 内容：{"num":1,"tag":["芙宁娜"]}
+23:08:56.451 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [sendApiRequest,144] - API 响应状态码：404
+23:08:56.451 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈API请求失败：https://sex.nyan.run/api/v2/⌋
+23:08:56.452 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [sendApiRequest,142] - 发送涩图 API 请求到：https://lolisuki.cn/api/setu/v1
+23:08:56.452 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [sendApiRequest,143] - 请求 JSON 内容：{"proxy":"i.pixiv.re","level":"0-6","num":1,"r18":0,"ai":2,"tag":["芙宁娜"],"full":0}
+23:08:57.020 [pool-3-thread-7] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈API请求失败：https://sex.nyan.run/api/v2/⌋成功
+23:09:06.982 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈API请求失败：Read timed out⌋
+23:09:07.588 [pool-3-thread-12] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈API请求失败：Read timed out⌋成功
+23:59:47.483 [WebSocketConnectReadThread-45] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+23:59:47.485 [main] INFO  fun.luqing.DMW2 - [main,15] - WebSocket 客户端已启动
+23:59:58.487 [pool-3-thread-12] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: [狐言鹿语(688595279)] 鹿晴 ⌈你好⌋
+23:59:58.495 [pool-3-thread-12] INFO  fun.luqing.DMW2 - [sendRequest,19] - 正在由 Gemini API 处理
+23:59:59.394 [pool-3-thread-12] INFO  fun.luqing.DMW2 - [speak,66] - 使用模型 银狼 合成 ⌈未解析到有效的 Gemini 回复⌋ 
+23:59:59.400 [pool-3-thread-12] INFO  fun.luqing.DMW2 - [speak,92] - 使用版本 v4 失败，尝试下一个…
+23:59:59.403 [pool-3-thread-12] INFO  fun.luqing.DMW2 - [speak,92] - 使用版本 v2Pro 失败，尝试下一个…

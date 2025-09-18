@@ -1,0 +1,31 @@
+21:57:45.497 [WebSocketConnectReadThread-44] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+21:57:45.500 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+21:57:58.150 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [<init>,31] - 清除上下文命中
+21:57:58.153 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [<init>,12] - 尝试发送回复消息⌈删除上下文成功⌋
+21:57:58.735 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [lambda$new$1,23] - 发送回复消息⌈删除上下文成功⌋成功
+21:58:03.446 [pool-3-thread-10] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: [狐言鹿语(688595279)] 鹿晴 ⌈你好⌋
+21:58:03.448 [pool-3-thread-10] INFO  fun.luqing.DMW2 - [<init>,12] - 尝试发送回复消息⌈接下来将由gemini回答，本提示仅在创建上下文记录时提示。如遇意外情况，可使用/clear重置上下文⌋
+21:58:03.450 [pool-3-thread-10] INFO  fun.luqing.DMW2 - [sendRequest,19] - 正在由 Gemini API 处理
+21:58:04.109 [pool-3-thread-8] INFO  fun.luqing.DMW2 - [lambda$new$1,23] - 发送回复消息⌈接下来将由gemini回答，本提示仅在创建上下文记录时提示。如遇意外情况，可使用/clear重置上下文⌋成功
+21:58:07.785 [pool-3-thread-10] INFO  fun.luqing.DMW2 - [<init>,12] - 尝试发送回复消息⌈你好，鹿晴。有什么需要布洛妮娅做的吗？⌋
+21:58:08.382 [pool-3-thread-12] INFO  fun.luqing.DMW2 - [lambda$new$1,23] - 发送回复消息⌈你好，鹿晴。有什么需要布洛妮娅做的吗？⌋成功
+21:58:57.470 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+21:58:57.471 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+21:59:25.092 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+21:59:25.093 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+22:03:24.401 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+22:03:24.403 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+22:04:20.174 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+22:04:20.175 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+22:06:33.135 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+22:06:33.142 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+22:10:17.239 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+22:10:17.241 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
+22:10:28.256 [pool-3-thread-12] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: [狐言鹿语(688595279)] 鹿晴 ⌈ciallo~⌋
+22:10:28.259 [pool-3-thread-12] INFO  fun.luqing.DMW2 - [sendRequest,19] - 正在由 Gemini API 处理
+22:10:33.666 [pool-3-thread-12] INFO  fun.luqing.DMW2 - [<init>,12] - 尝试发送回复消息⌈Ciallo... 鹿晴，这是新的问候吗？⌋
+22:10:34.232 [pool-3-thread-10] INFO  fun.luqing.DMW2 - [lambda$new$1,23] - 发送回复消息⌈Ciallo... 鹿晴，这是新的问候吗？⌋成功
+22:43:54.049 [WebSocketConnectReadThread-47] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+22:43:54.050 [main] INFO  fun.luqing.DMW2 - [main,15] - WebSocket 客户端已启动
+22:43:54.222 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+22:43:54.223 [main] INFO  fun.luqing.DMW2 - [main,15] - WebSocket 客户端已启动
