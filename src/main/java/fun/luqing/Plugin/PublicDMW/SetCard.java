@@ -1,7 +1,6 @@
 package fun.luqing.Plugin.PublicDMW;
 
 import fun.luqing.ApiConnector.Group.SetGroupCard;
-import fun.luqing.ApiConnector.Group.SetGroupSpecialTitle;
 import fun.luqing.ApiConnector.Message.GroupChat.SendGroupMessage;
 import fun.luqing.Utils.Message.GroupMessage;
 

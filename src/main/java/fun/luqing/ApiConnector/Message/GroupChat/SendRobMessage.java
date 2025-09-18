@@ -3,7 +3,6 @@ package fun.luqing.ApiConnector.Message.GroupChat;
 import fun.luqing.ApiConnector.PostBuilder;
 import fun.luqing.ApiConnector.PostSender;
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.util.Map;
 

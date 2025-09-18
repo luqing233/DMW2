@@ -6,14 +6,14 @@ import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
 import org.json.JSONObject;
 
-import static fun.luqing.Color.ANSIColors.*;
-import static fun.luqing.DMW2.logger;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.UUID;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicBoolean;
+
+import static fun.luqing.Color.ANSIColors.*;
+import static fun.luqing.DMW2.logger;
 
 public class WebSocket {
     private static volatile WebSocket instance;
@@ -88,7 +88,7 @@ public class WebSocket {
                 client = null;
             }
 
-            URI uri = new URI(Config.getInstance().getWS_URL());
+            URI uri = new URI(Config.getInstance().getString("WS_URL"));
             client = new WebSocketClient(uri) {
                 @Override
                 public void onOpen(ServerHandshake handshake) {
@@ -121,7 +121,7 @@ public class WebSocket {
                 handleReconnect();
             }
         } catch (URISyntaxException e) {
-            logger.error("无效的 WebSocket URL: {}", Config.getInstance().getWS_URL(), e);
+            logger.error("无效的 WebSocket URL: {}", Config.getInstance().getString("WS_URL"), e);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             logger.warn("WebSocket 连接等待中断", e);

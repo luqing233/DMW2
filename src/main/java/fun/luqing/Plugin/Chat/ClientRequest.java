@@ -1,6 +1,8 @@
 package fun.luqing.Plugin.Chat;
 
+import fun.luqing.Config.Config;
 import org.apache.http.HttpEntity;
+import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -44,4 +46,44 @@ public class ClientRequest {
             return "请求失败";
         }
     }
+
+    /**
+     * 发送 POST 请求 (Gemini 专用，带代理)
+     * @param url 请求的 URL
+     * @param apiKey API Key
+     * @param jsonBody 请求的 JSON 数据
+     * @return 返回响应内容
+     */
+    public static String sendPostRequestWithQueryParam(String url, String apiKey, String jsonBody) {
+        try {
+            // 从 Config 读取代理配置（也可以写死）
+            String proxyHost = Config.getInstance().getString("GEMINI_PROXY_HOST");
+            int proxyPort = Config.getInstance().getInt("GEMINI_PROXY_PORT");
+
+            HttpHost proxy = new HttpHost(proxyHost, proxyPort, "http");
+
+            try (CloseableHttpClient httpClient = HttpClients.custom()
+                    .setProxy(proxy) // 只 Gemini 走代理
+                    .build()) {
+
+                String finalUrl = url + "?key=" + apiKey;
+                HttpPost httpPost = new HttpPost(finalUrl);
+
+                httpPost.setHeader("Content-Type", "application/json");
+                httpPost.setEntity(new StringEntity(jsonBody, "UTF-8"));
+
+                HttpResponse response = httpClient.execute(httpPost);
+                HttpEntity entity = response.getEntity();
+
+                if (entity != null) {
+                    return EntityUtils.toString(entity);
+                }
+                return null;
+            }
+        } catch (Exception e) {
+            logger.error("Gemini 请求失败", e);
+            return "请求失败";
+        }
+    }
+
 }

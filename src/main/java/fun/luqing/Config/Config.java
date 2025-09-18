@@ -1,35 +1,53 @@
 package fun.luqing.Config;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
-import java.io.*;
+
+import java.io.IOException;
+import java.io.Writer;
+import java.net.HttpURLConnection;
+import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.*;
 
 import static fun.luqing.DMW2.logger;
 
 public class Config {
     private static volatile Config instance;
 
-    private String WS_URL;
-    private String HTTP_URL;
-    private String AI_CHARACTER;
-    private int MAX_MESSAGES;
-
-    private String AI_MODEL;
-
-    private String DEEPSEEK_MODEL;
-    private String BIGMODEL_MODEL;
-    private String TTS_MODEL;
-
-    private boolean TTS_STATUE;
-
-
     private static final String CONFIG_DIR = "Config";
     private static final String CONFIG_FILE = "./Config/Config.json";
 
+    private final Map<String, Object> values = new LinkedHashMap<>();
+
+    private static final Map<String, Object> DEFAULTS = new LinkedHashMap<>() {{
+        put("WS_URL", "ws://localhost:3001");
+        put("HTTP_URL", "http://localhost:3000");
+
+        put("GEMINI_PROXY_HOST", "127.0.0.1");
+        put("GEMINI_PROXY_PORT", 7897);
+
+        put("AI_CHARACTER", " ");
+        put("MAX_MESSAGES", 20);
+
+        put("AI_MODEL", "deepseek");
+        put("DEEPSEEK_MODEL", "deepseek-chat");
+        put("BIGMODEL_MODEL", "glm-4.5");
+        put("GEMINI_MODEL", "gemini-2.5-flash");
+        put("GEMINI_API_KEY", "dfk");
+
+        put("TTS_MODEL", "符玄");
+
+        put("master", new JSONArray().put(3253912136L));
+    }};
+
+    private boolean TTS_STATUS;
+
     private Config() {
         loadConfigurations();
+        checkTTSStatus();
     }
 
     public static Config getInstance() {
@@ -51,155 +69,136 @@ public class Config {
         Path configPath = Paths.get(CONFIG_FILE);
         try {
             Files.createDirectories(Paths.get(CONFIG_DIR));
-            if (!Files.exists(configPath)) {
-                createDefaultConfigFile(configPath);
+
+            JSONObject configData = null;
+            if (Files.exists(configPath)) {
+                String content = Files.readString(configPath);
+                configData = new JSONObject(content);
             }
-            parseConfigFile(configPath);
-        } catch (IOException e) {
-            e.printStackTrace();
-            setDefaultValues();
-        }
-    }
 
-    private void createDefaultConfigFile(Path configPath) {
-        JSONObject defaultConfig = new JSONObject();
-        defaultConfig.put("WS_URL", "ws://localhost:3001");
-        defaultConfig.put("HTTP_URL", "http://localhost:3000");
-        defaultConfig.put("AI_CHARACTER", " ");
-        defaultConfig.put("MAX_MESSAGES", 20);
-        defaultConfig.put("AI_MODEL", "deepseek");
-        defaultConfig.put("DEEPSEEK_MODEL", "deepseek-chat");
-        defaultConfig.put("BIGMODEL_MODEL", "glm-4.5");
-        defaultConfig.put("TTS_MODEL", "符玄");
-
-        try (Writer writer = Files.newBufferedWriter(configPath)) {
-            writer.write(defaultConfig.toString(2)); // 格式化输出
-        } catch (IOException e) {
-            e.printStackTrace();
-            setDefaultValues();
-        }
-    }
-
-    private void parseConfigFile(Path configPath) {
-        try (BufferedReader reader = Files.newBufferedReader(configPath)) {
-            StringBuilder content = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                content.append(line);
+            for (String key : DEFAULTS.keySet()) {
+                if (configData != null && configData.has(key)) {
+                    values.put(key, configData.get(key));
+                } else {
+                    values.put(key, DEFAULTS.get(key));
+                }
             }
-            JSONObject configData = new JSONObject(content.toString());
 
-            WS_URL = configData.optString("WS_URL", "ws://localhost:3001");
-            HTTP_URL = configData.optString("HTTP_URL", "http://localhost:3000");
-            AI_CHARACTER = configData.optString("AI_CHARACTER", " ");
-            MAX_MESSAGES = configData.optInt("MAX_MESSAGES", 20);
-            AI_MODEL = configData.optString("AI_MODEL", "deepseek");
-            DEEPSEEK_MODEL = configData.optString("DEEPSEEK_MODEL", "deepseek-chat");
-            BIGMODEL_MODEL = configData.optString("BIGMODEL_MODEL", "glm-4.5");
-            TTS_MODEL = configData.optString("TTS_MODEL", "符玄");
+            saveConfigFile();
+
         } catch (IOException e) {
-            logger.info(e.getMessage());
-            setDefaultValues();
+            logger.error("加载配置失败，使用默认值: {}", e.toString());
+            values.clear();
+            values.putAll(DEFAULTS);
+            saveConfigFile();
         }
     }
 
-    private void setDefaultValues() {
-        WS_URL = "ws://localhost:3001";
-        HTTP_URL = "http://localhost:3000";
-        AI_CHARACTER = " ";
-        MAX_MESSAGES = 20;
-        AI_MODEL = "deepseek";
-        DEEPSEEK_MODEL = "deepseek-chat";
-        BIGMODEL_MODEL = "glm-4.5";
-        TTS_MODEL = "符玄";
-    }
-
-    public String getWS_URL() {
-        return WS_URL;
-    }
-
-    public String getHTTP_URL() {
-        return HTTP_URL;
-    }
-
-    public String getAI_CHARACTER() {
-        return AI_CHARACTER;
-    }
-
-    public int getMAX_MESSAGES() {
-        return MAX_MESSAGES;
-    }
-
-    public String getDEEPSEEK_MODEL() {
-        return DEEPSEEK_MODEL;
-    }
-
-    public String getTTS_MODEL(){
-        return TTS_MODEL;
-    }
-
-    // Setters with file update
-    public void setWS_URL(String WS_URL) {
-        this.WS_URL = WS_URL;
-        updateConfigFile("WS_URL", WS_URL);
-    }
-
-    public void setHTTP_URL(String HTTP_URL) {
-        this.HTTP_URL = HTTP_URL;
-        updateConfigFile("HTTP_URL", HTTP_URL);
-    }
-
-    public void setAI_CHARACTER(String AI_CHARACTER) {
-        this.AI_CHARACTER = AI_CHARACTER;
-        updateConfigFile("AI_CHARACTER", AI_CHARACTER);
-    }
-
-    public void setMAX_MESSAGES(int MAX_MESSAGES) {
-        this.MAX_MESSAGES = MAX_MESSAGES;
-        updateConfigFile("MAX_MESSAGES", MAX_MESSAGES);
-    }
-
-    public void setDEEPSEEK_MODEL(String DEEPSEEK_MODEL) {
-        this.DEEPSEEK_MODEL = DEEPSEEK_MODEL;
-        updateConfigFile("DEEPSEEK_MODEL", DEEPSEEK_MODEL);
-    }
-
-    public void setTTS_MODEL(String TTS_MODEL) {
-        this.TTS_MODEL = TTS_MODEL;
-        updateConfigFile("TTS_MODEL", TTS_MODEL);
-    }
-
-    public String getAI_MODEL() {
-        return AI_MODEL;
-    }
-
-    public void setAI_MODEL(String AI_MODEL) {
-        this.AI_MODEL = AI_MODEL;
-        updateConfigFile("AI_MODEL", AI_MODEL);
-    }
-
-    // Method to update the JSON config file
-    private void updateConfigFile(String key, Object value) {
+    private void saveConfigFile() {
         Path configPath = Paths.get(CONFIG_FILE);
-        try {
-            JSONObject configData = new JSONObject(new String(Files.readAllBytes(configPath)));
-            configData.put(key, value);
-
-            try (Writer writer = Files.newBufferedWriter(configPath)) {
-                writer.write(configData.toString(2)); // 格式化输出
+        try (Writer writer = Files.newBufferedWriter(configPath)) {
+            JSONObject ordered = new JSONObject();
+            for (String key : DEFAULTS.keySet()) {
+                Object val = values.getOrDefault(key, DEFAULTS.get(key));
+                if (val instanceof Collection) {
+                    ordered.put(key, new JSONArray((Collection<?>) val));
+                } else if (val instanceof JSONArray) {
+                    ordered.put(key, val);
+                } else {
+                    ordered.put(key, val);
+                }
             }
+            writer.write(ordered.toString(2));
         } catch (IOException e) {
-            logger.error(e.toString());
-
+            logger.error("写入配置失败: {}", e.toString());
         }
     }
 
-
-    public String getBIGMODEL_MODEL() {
-        return BIGMODEL_MODEL;
+    public String getString(String key) {
+        return Objects.toString(values.getOrDefault(key, DEFAULTS.get(key)));
     }
 
-    public void setBIGMODEL_MODEL(String BIGMODEL_MODEL) {
-        this.BIGMODEL_MODEL = BIGMODEL_MODEL;
+    public int getInt(String key) {
+        Object val = values.getOrDefault(key, DEFAULTS.get(key));
+        return (val instanceof Number) ? ((Number) val).intValue() : Integer.parseInt(val.toString());
     }
+
+    public List<Long> getMasters() {
+        Object val = values.get("master");
+        List<Long> masters = new ArrayList<>();
+        if (val instanceof JSONArray arr) {
+            for (int i = 0; i < arr.length(); i++) {
+                masters.add(arr.optLong(i, -1L));
+            }
+        } else if (val instanceof Collection<?> col) {
+            for (Object o : col) {
+                if (o instanceof Number num) {
+                    masters.add(num.longValue());
+                } else {
+                    try {
+                        masters.add(Long.parseLong(o.toString()));
+                    } catch (NumberFormatException ignored) {}
+                }
+            }
+        }
+        return masters;
+    }
+
+
+
+    public void set(String key, Object value) {
+        values.put(key, value);
+        saveConfigFile();
+    }
+
+    private void checkTTSStatus() {
+        try {
+            URI uri = URI.create("http://127.0.0.1:8000/api");
+            HttpURLConnection conn = (HttpURLConnection) uri.toURL().openConnection();
+            conn.setConnectTimeout(1000);
+            conn.setReadTimeout(1000);
+            conn.setRequestMethod("GET");
+            int code = conn.getResponseCode();
+            this.TTS_STATUS = (code == 200);
+        } catch (IOException e) {
+            this.TTS_STATUS = false;
+            logger.warn("TTS 服务连接失败: {}", String.valueOf(e));
+        }
+    }
+
+    public boolean isTTS_STATUS() {
+        checkTTSStatus();
+        return TTS_STATUS;
+    }
+
+
+    public boolean isMaster(long qq) {
+        return getMasters().contains(qq);
+    }
+
+    /** 添加主人 */
+    public void addMaster(long qq) {
+        List<Long> masters = new ArrayList<>(getMasters());
+        if (!masters.contains(qq)) {
+            masters.add(qq);
+            values.put("master", masters);
+            saveConfigFile();
+        }
+    }
+
+    /** 删除主人 */
+    public void removeMaster(long qq) {
+        List<Long> masters = new ArrayList<>(getMasters());
+        if (masters.remove(qq)) {
+            values.put("master", masters);
+            saveConfigFile();
+        }
+    }
+
+    /** 批量设置主人（覆盖原有） */
+    public void setMasters(Collection<Long> masters) {
+        values.put("master", new ArrayList<>(masters));
+        saveConfigFile();
+    }
+
 }

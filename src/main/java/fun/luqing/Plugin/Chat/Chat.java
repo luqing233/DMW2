@@ -13,14 +13,16 @@ import static fun.luqing.DMW2.logger;
 
 public class Chat {
 
-    private static final int MAX_MESSAGES = Config.getInstance().getMAX_MESSAGES();
+    private static final int MAX_MESSAGES = Config.getInstance().getInt("MAX_MESSAGES");
     private final ApiInterface api;
 
     public Chat(GroupMessage message) {
         this.api = getApiFromConfig();
 
         if (isMessageValid(message)) {
-            logger.info("消息命中:  {} ⌈{}⌋",  message.getNickname(), message.getText());
+            logger.info("消息命中: [{}({})] {} ⌈{}⌋",message.getGroup_name(), message.getGroup_id(),message.getNickname(), message.getText());
+
+
             String response = sendApiRequest(message);
             if (response != null) {
                 handleApiResponse(response, message);
@@ -32,10 +34,13 @@ public class Chat {
     }
 
     private ApiInterface getApiFromConfig() {
-        String apiChoice = Config.getInstance().getAI_MODEL();
+        String apiChoice = Config.getInstance().getString("AI_MODEL");
         if ("deepseek".equalsIgnoreCase(apiChoice)) {
             return new DeepSeekApi();
-        } else {
+        }else  if ("gemini".equalsIgnoreCase(apiChoice)) {
+            return new GeminiApi();
+        }
+        else {
             return new BigModelApi();
         }
     }
@@ -61,12 +66,10 @@ public class Chat {
         JsonHandler jsonHandler = new JsonHandler(MAX_MESSAGES);
         jsonHandler.appendAssistantMessage(reply, message.getUser_id());
 
-        // 去除括号内的内容
-
-        String reply1 = reply.replaceAll("[\\(（][^\\)）]*[\\)）]", "");
         // 语音合成
-        String audioUrl = TTS.speak(reply1, Config.getInstance().getTTS_MODEL());
-        if (!audioUrl.equals("0") && !audioUrl.equals("-1")) {
+        if(Config.getInstance().isTTS_STATUS()) {
+            reply = reply.replaceAll("[\\(（][^\\)）]*[\\)）]", "");
+            String audioUrl = TTS.speak(reply, Config.getInstance().getString("TTS_MODEL"));
             new SendGroupMessageRecord().send(message.getGroup_id(), audioUrl);
         } else {
             new SendGroupMessageReply(message.getGroup_id(), message.getMessage_id(), reply);

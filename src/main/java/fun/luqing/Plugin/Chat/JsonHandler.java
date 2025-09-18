@@ -11,14 +11,14 @@ import java.util.Objects;
 
 public class JsonHandler {
     private final String systemMessage;
-    private final String model = Config.getInstance().getDEEPSEEK_MODEL();
+    //private final String model = Config.getInstance().getDEEPSEEK_MODEL();
     private final boolean stream = false;
     private final String directoryPath = "./data/";
     private final int maxMessages;
 
     public JsonHandler(int maxMessages) {
         this.maxMessages = maxMessages;
-        this.systemMessage = Config.getInstance().getAI_CHARACTER();
+        this.systemMessage = Config.getInstance().getString("AI_CHARACTER");
     }
 
     public JSONObject buildUserMessageJson(GroupMessage message) {
@@ -27,7 +27,7 @@ public class JsonHandler {
         JSONObject jsonObject = fileUtil.readJsonFile(filename);
 
         if (jsonObject == null) {
-            new SendGroupMessageReply(message.getGroup_id(), message.getMessage_id(), "接下来将由"+Config.getInstance().getAI_MODEL()+"回答，本提示仅在创建上下文记录时提示。如遇意外情况，可使用/clear重置上下文");
+            new SendGroupMessageReply(message.getGroup_id(), message.getMessage_id(), "接下来将由"+Config.getInstance().getString("AI_MODEL")+"回答，本提示仅在创建上下文记录时提示。如遇意外情况，可使用/clear重置上下文");
             jsonObject = buildInitialJson(message.getNickname());
             fileUtil.writeJsonFile(filename, jsonObject);
         }
@@ -36,9 +36,9 @@ public class JsonHandler {
         JSONArray messages = jsonObject.getJSONArray("messages");
         //System.out.println(message.getText());
         if (Objects.equals(message.getText(), "")) {
-            addMessage(messages, "user", "(此处用户发送了一个空白符号，意思是什么话都没说)", message.getNickname());
+            addMessage(messages, "user", "["+message.getTime()+"] (此处用户发送了一个空白符号，意思是什么话都没说)", message.getNickname());
         }else {
-            addMessage(messages, "user", message.getText(), message.getNickname());
+            addMessage(messages, "user", "["+message.getTime()+"] "+message.getText(), message.getNickname());
         }
         trimMessages(messages);
         fileUtil.writeJsonFile(filename, jsonObject);

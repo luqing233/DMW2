@@ -1,16 +1,48 @@
-00:34:40.667 [pool-3-thread-14] ERROR fun.luqing.DMW2 - [parseResponse,63] - BigModel
-org.json.JSONException: JSONObject["choices"] not found.
-	at org.json.JSONObject.get(JSONObject.java:568)
-	at org.json.JSONObject.getJSONArray(JSONObject.java:761)
-	at fun.luqing.Plugin.Chat.BigModelApi.parseResponse(BigModelApi.java:26)
-	at fun.luqing.Plugin.Chat.Chat.handleApiResponse(Chat.java:54)
-	at fun.luqing.Plugin.Chat.Chat.<init>(Chat.java:26)
-	at fun.luqing.Plugin.Plugin.lambda$getPlugins$3(Plugin.java:38)
+22:47:54.710 [CompletableFutureDelayScheduler] ERROR fun.luqing.DMW2 - [lambda$send$2,47] - 发送合并转发消息失败
+java.util.concurrent.CompletionException: java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:347)
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:636)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194)
+	at java.base/java.util.concurrent.CompletableFuture$Timeout.run(CompletableFuture.java:2920)
 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-00:34:40.682 [pool-3-thread-14] ERROR fun.luqing.DMW2 - [speak,86] - 无法连接本地 TTS 服务: Connection refused: connect
-00:35:04.876 [pool-3-thread-1] ERROR fun.luqing.DMW2 - [speak,86] - 无法连接本地 TTS 服务: Connection refused: connect
-00:36:10.490 [pool-3-thread-8] ERROR fun.luqing.DMW2 - [speak,86] - 无法连接本地 TTS 服务: Connection refused: connect
+Caused by: java.util.concurrent.TimeoutException: null
+	... 7 common frames omitted
+22:54:02.198 [CompletableFutureDelayScheduler] ERROR fun.luqing.DMW2 - [lambda$send$2,47] - 发送合并转发消息失败
+java.util.concurrent.CompletionException: java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:347)
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:636)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194)
+	at java.base/java.util.concurrent.CompletableFuture$Timeout.run(CompletableFuture.java:2920)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.util.concurrent.TimeoutException: null
+	... 7 common frames omitted
+23:01:18.986 [CompletableFutureDelayScheduler] ERROR fun.luqing.DMW2 - [lambda$send$2,47] - 发送合并转发消息失败
+java.util.concurrent.CompletionException: java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:347)
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:636)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2194)
+	at java.base/java.util.concurrent.CompletableFuture$Timeout.run(CompletableFuture.java:2920)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.util.concurrent.TimeoutException: null
+	... 7 common frames omitted

@@ -1,18 +1,14 @@
 package fun.luqing.temp;
 
-import fun.luqing.ApiConnector.Message.GroupChat.SendGroupMessage;
-import fun.luqing.ApiConnector.Message.GroupChat.SendGroupMessageReply;
-import fun.luqing.ApiConnector.Message.SendGroupForwardMsg;
+import fun.luqing.ApiConnector.Message.GroupChat.SendGroupForwardMsg;
 import fun.luqing.ApiConnector.PostBuilder;
 import fun.luqing.ApiConnector.User.GetFriendList;
 import fun.luqing.ApiConnector.Utils.Friend;
 import fun.luqing.Utils.Message.GroupMessage;
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.StringJoiner;
 
 public class PT {
     public PT(GroupMessage info){
@@ -31,7 +27,7 @@ public class PT {
                     }
 
                 }
-                new SendGroupForwardMsg(info.getGroup_id(), jsonArray);
+                SendGroupForwardMsg.send(info.getGroup_id(),jsonArray );
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

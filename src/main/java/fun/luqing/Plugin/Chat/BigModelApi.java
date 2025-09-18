@@ -14,7 +14,7 @@ public class BigModelApi implements ApiInterface {
     @Override
     public String sendRequest(JSONObject jsonBody) {
         logger.info("正在由智谱AI处理");
-        jsonBody.put("model", Config.getInstance().getBIGMODEL_MODEL());
+        jsonBody.put("model", Config.getInstance().getString("BIGMODEL_MODEL"));
         return ClientRequest.sendPostRequest(API_URL, API_KEY, jsonBody.toString());
     }
 

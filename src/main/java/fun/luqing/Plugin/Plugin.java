@@ -1,12 +1,12 @@
 package fun.luqing.Plugin;
 
 import fun.luqing.Plugin.Chat.Chat;
-import fun.luqing.Plugin.Config.Config;
-import fun.luqing.Plugin.PublicDMW.Pool;
-import fun.luqing.Plugin.SeTu.Lolicon;
+import fun.luqing.Plugin.Config.ConfigManager;
 import fun.luqing.Plugin.Music.Music;
 import fun.luqing.Plugin.PublicDMW.GrantTitle;
+import fun.luqing.Plugin.PublicDMW.Pool;
 import fun.luqing.Plugin.PublicDMW.SetCard;
+import fun.luqing.Plugin.SeTu.Lolicon;
 import fun.luqing.Plugin.TTS.TTS;
 import fun.luqing.Utils.Message.GroupMessage;
 import fun.luqing.Utils.Message.Notice;
@@ -40,7 +40,7 @@ public class Plugin {
             plugins.add(() -> new GrantTitle(message));
             plugins.add(() -> new TTS(message));
             plugins.add(() -> new Music(message));
-            plugins.add(() -> new Config(message));
+            plugins.add(() -> new ConfigManager(message));
             plugins.add(() -> new Pool(message));
         }
 

@@ -13,7 +13,7 @@ public class DeepSeekApi implements ApiInterface {
     @Override
     public String sendRequest(JSONObject jsonBody) {
         logger.info("正在由DeepSeek处理");
-        jsonBody.put("model", Config.getInstance().getDEEPSEEK_MODEL());
+        jsonBody.put("model", Config.getInstance().getString("DEEPSEEK_MODEL"));
         return ClientRequest.sendPostRequest(API_URL, API_KEY, jsonBody.toString());
     }
 

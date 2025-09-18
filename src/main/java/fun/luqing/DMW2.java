@@ -1,15 +1,8 @@
 package fun.luqing;
 
-import fun.luqing.ApiConnector.Group.GetGroupMemberList;
-import fun.luqing.ApiConnector.Message.GroupChat.SendGroupMessageRecord;
-import fun.luqing.ApiConnector.User.GetFriendList;
-import fun.luqing.ApiConnector.Utils.Friend;
-import fun.luqing.ApiConnector.Utils.GroupMember;
 import fun.luqing.WebSocket.WebSocket;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.ArrayList;
 
 public class DMW2 {
     public static final Logger logger = LoggerFactory.getLogger(DMW2.class);
