@@ -71,7 +71,7 @@ public class Chat {
                         "DMW产生一个意外错误,原因:\n"+reply.getString("data")+"建议使用 /clear 指令来重置上下文");
             }
         } catch (Exception e) {
-            logger.error("处理API响应失败", e);
+            logger.error("处理API响应失败", e);//忽略
         }
     }
 
