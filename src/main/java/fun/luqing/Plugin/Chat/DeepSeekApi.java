@@ -18,16 +18,22 @@ public class DeepSeekApi implements ApiInterface {
     }
 
     @Override
-    public String parseResponse(String response) {
+    public JSONObject parseResponse(String response) {
         try {
             JSONObject responseObject = new JSONObject(response);
-            return responseObject.getJSONArray("choices")
+            JSONObject responseData=new JSONObject();
+            responseData.put("status","ok");
+            responseData.put("data",responseObject.getJSONArray("choices")
                     .getJSONObject(0)
                     .getJSONObject("message")
-                    .getString("content");
+                    .getString("content"));
+            return responseData;
         } catch (Exception e) {
             logger.error("DeepSeek", e);
-            return "抱歉，处理回复时出错了";
+            JSONObject responseData=new JSONObject();
+            responseData.put("status","error");
+            responseData.put("data",e);
+            return responseData;
         }
     }
 }

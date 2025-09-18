@@ -1,6 +1,7 @@
 package fun.luqing.Plugin.Chat;
 
 import fun.luqing.Config.Config;
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -19,49 +20,32 @@ public class BigModelApi implements ApiInterface {
     }
 
     @Override
-    public String parseResponse(String response) {
+    public JSONObject parseResponse(String response) {
         try {
             //System.out.println(response);
-            JSONObject responseObject = new JSONObject(response);
-            JSONArray choices = responseObject.getJSONArray("choices");
 
-            // 获取第一个 choice 的 message
-            JSONObject firstChoice = choices.getJSONObject(0);
-            JSONObject message = firstChoice.getJSONObject("message");
-            String content = message.getString("content");
-
-            // 解析 audio 信息
-            if (message.has("audio")) {
-                JSONObject audio = message.getJSONObject("audio");
-                String audioData = audio.getString("data");
-                return audioData; // 返回音频数据
-            }
-
-            // 处理视频结果
-            if (responseObject.has("video_result")) {
-                JSONArray videoResults = responseObject.getJSONArray("video_result");
-                String videoUrl = videoResults.getJSONObject(0).getString("url");
-                return videoUrl; // 返回视频 URL
-            }
-
-            // 处理网页搜索结果
-            if (responseObject.has("web_search")) {
-                JSONArray webSearchResults = responseObject.getJSONArray("web_search");
-                StringBuilder searchResults = new StringBuilder();
-                for (int i = 0; i < webSearchResults.length(); i++) {
-                    JSONObject searchResult = webSearchResults.getJSONObject(i);
-                    searchResults.append(searchResult.getString("title"))
-                            .append(": ")
-                            .append(searchResult.getString("link"))
-                            .append("\n");
-                }
-                return searchResults.toString(); // 返回搜索结果
-            }
-
-            return content; // 默认返回内容
+            return getJsonObject(response); // 默认返回内容
         } catch (Exception e) {
             logger.error("BigModel", e);
-            return "抱歉，处理回复时出错了";
+            JSONObject responseData=new JSONObject();
+            responseData.put("status","error");
+            responseData.put("data",e);
+            return responseData;
         }
+    }
+
+    @NotNull
+    private static JSONObject getJsonObject(String response) {
+        JSONObject responseObject = new JSONObject(response);
+        JSONArray choices = responseObject.getJSONArray("choices");
+
+        // 获取第一个 choice 的 message
+        JSONObject firstChoice = choices.getJSONObject(0);
+        JSONObject message = firstChoice.getJSONObject("message");
+        String content = message.getString("content");
+        JSONObject responseData=new JSONObject();
+        responseData.put("status","ok");
+        responseData.put("data",content);
+        return responseData;
     }
 }

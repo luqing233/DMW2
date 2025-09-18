@@ -8,56 +8,35 @@
         {
             "role": "user",
             "name": "鹿晴",
-            "content": "[2025-09-06 21:58:03] 你好"
+            "content": "[2025-09-18 23:26:50] ?"
         },
         {
             "role": "assistant",
-            "content": "你好，鹿晴。有什么需要布洛妮娅做的吗？"
+            "content": "嗯？鹿晴，你有什么想说的吗？"
         },
         {
             "role": "user",
             "name": "鹿晴",
-            "content": "[2025-09-06 22:10:28] ciallo~"
+            "content": "[2025-09-18 23:27:37] 啊嘞"
         },
         {
             "role": "assistant",
-            "content": "Ciallo... 鹿晴，这是新的问候吗？"
+            "content": "嗯... 鹿晴，有什么事吗？"
         },
         {
             "role": "user",
             "name": "鹿晴",
-            "content": "[2025-09-07 22:43:20] ciallo~"
-        },
-        {
-            "role": "assistant",
-            "content": "未解析到有效的 Gemini 回复"
+            "content": "[2025-09-19 01:04:41] 你好"
         },
         {
             "role": "user",
             "name": "鹿晴",
-            "content": "[2025-09-07 22:43:48] 曼波~"
-        },
-        {
-            "role": "assistant",
-            "content": "曼波... 听起来很轻松。你今天心情不错吗，鹿晴？"
+            "content": "[2025-09-19 01:06:15] ？"
         },
         {
             "role": "user",
             "name": "鹿晴",
-            "content": "[2025-09-07 23:59:58] 你好"
-        },
-        {
-            "role": "assistant",
-            "content": "未解析到有效的 Gemini 回复"
-        },
-        {
-            "role": "user",
-            "name": "鹿晴",
-            "content": "[2025-09-08 00:00:22] 你好"
-        },
-        {
-            "role": "assistant",
-            "content": "你好，鹿晴。你今天还好吗？"
+            "content": "[2025-09-19 01:08:22] 你好？"
         }
     ]
 }

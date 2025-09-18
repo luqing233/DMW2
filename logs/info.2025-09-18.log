@@ -1,0 +1,35 @@
+23:22:12.684 [WebSocketConnectReadThread-43] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+23:22:12.688 [main] INFO  fun.luqing.DMW2 - [main,15] - WebSocket 客户端已启动
+23:22:19.321 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: [狐言鹿语(688595279)] 鹿晴 ⌈？⌋
+23:22:19.326 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [sendRequest,29] - 正在由 Gemini API 处理
+23:22:22.162 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈未解析到有效的 Gemini 回复⌋
+23:22:22.702 [pool-3-thread-9] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈未解析到有效的 Gemini 回复⌋成功
+23:23:22.423 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+23:23:22.424 [main] INFO  fun.luqing.DMW2 - [main,15] - WebSocket 客户端已启动
+23:23:29.406 [pool-3-thread-9] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: [狐言鹿语(688595279)] 鹿晴 ⌈？⌋
+23:23:29.409 [pool-3-thread-9] INFO  fun.luqing.DMW2 - [sendRequest,29] - 正在由 Gemini API 处理
+23:23:31.441 [pool-3-thread-9] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈未解析到有效的 Gemini 回复⌋
+23:23:31.973 [pool-3-thread-2] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈未解析到有效的 Gemini 回复⌋成功
+23:24:09.517 [pool-3-thread-6] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: [狐言鹿语(688595279)] 辞哀 ⌈？⌋
+23:24:09.518 [pool-3-thread-6] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈接下来将由gemini回答，本提示仅在创建上下文记录时提示。如遇意外情况，可使用/clear重置上下文⌋
+23:24:09.520 [pool-3-thread-6] INFO  fun.luqing.DMW2 - [sendRequest,29] - 正在由 Gemini API 处理
+23:24:10.094 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈接下来将由gemini回答，本提示仅在创建上下文记录时提示。如遇意外情况，可使用/clear重置上下文⌋成功
+23:24:10.526 [pool-3-thread-6] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈抱歉，处理 Gemini 回复时出错了⌋
+23:24:11.128 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈抱歉，处理 Gemini 回复时出错了⌋成功
+23:24:24.315 [pool-3-thread-10] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: [狐言鹿语(688595279)] 辞哀 ⌈我爱你⌋
+23:24:24.316 [pool-3-thread-10] INFO  fun.luqing.DMW2 - [sendRequest,29] - 正在由 Gemini API 处理
+23:24:29.319 [pool-3-thread-10] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈未解析到有效的 Gemini 回复⌋
+23:24:29.848 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈未解析到有效的 Gemini 回复⌋成功
+23:26:46.202 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [<init>,31] - 清除上下文命中
+23:26:46.203 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈删除上下文成功⌋
+23:26:46.823 [pool-3-thread-8] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈删除上下文成功⌋成功
+23:26:49.633 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: [狐言鹿语(688595279)] 鹿晴 ⌈?⌋
+23:26:49.633 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈接下来将由gemini回答，本提示仅在创建上下文记录时提示。如遇意外情况，可使用/clear重置上下文⌋
+23:26:49.635 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [sendRequest,29] - 正在由 Gemini API 处理
+23:26:50.206 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈接下来将由gemini回答，本提示仅在创建上下文记录时提示。如遇意外情况，可使用/clear重置上下文⌋成功
+23:27:16.327 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈嗯？鹿晴，你有什么想说的吗？⌋
+23:27:16.894 [pool-3-thread-14] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈嗯？鹿晴，你有什么想说的吗？⌋成功
+23:27:36.439 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: [狐言鹿语(688595279)] 鹿晴 ⌈啊嘞⌋
+23:27:36.449 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [sendRequest,29] - 正在由 Gemini API 处理
+23:28:12.659 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈嗯... 鹿晴，有什么事吗？⌋
+23:28:13.178 [pool-3-thread-12] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈嗯... 鹿晴，有什么事吗？⌋成功

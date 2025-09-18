@@ -15,9 +15,11 @@ public class Chat {
 
     private static final int MAX_MESSAGES = Config.getInstance().getInt("MAX_MESSAGES");
     private final ApiInterface api;
+    private final JsonHandler jsonHandler;
 
     public Chat(GroupMessage message) {
         this.api = getApiFromConfig();
+        this.jsonHandler = new JsonHandler(MAX_MESSAGES);
 
         if (isMessageValid(message)) {
             logger.info("消息命中: [{}({})] {} ⌈{}⌋",message.getGroup_name(), message.getGroup_id(),message.getNickname(), message.getText());
@@ -32,7 +34,15 @@ public class Chat {
             clearUserContext(message);
         }
     }
-
+    private String sendApiRequest(GroupMessage message) {
+        try {
+            JSONObject requestJson = jsonHandler.buildUserMessageJson(message);
+            return api.sendRequest(requestJson);
+        } catch (Exception e) {
+            logger.error("API请求失败", e);
+            return null;
+        }
+    }
     private ApiInterface getApiFromConfig() {
         String apiChoice = Config.getInstance().getString("AI_MODEL");
         if ("deepseek".equalsIgnoreCase(apiChoice)) {
@@ -49,26 +59,28 @@ public class Chat {
         return message.getType().contains("at") && atMe(message.getAt(), message.getSelf_id());
     }
 
-    private String sendApiRequest(GroupMessage message) {
-        JsonHandler jsonHandler = new JsonHandler(MAX_MESSAGES);
-        JSONObject requestJson = jsonHandler.buildUserMessageJson(message);
-        return api.sendRequest(requestJson);
-    }
+
 
     private void handleApiResponse(String response, GroupMessage message) {
-        String reply = api.parseResponse(response);
-        if (reply != null) {
-            sendReply(reply, message);
+        try {
+            JSONObject reply = api.parseResponse(response);
+            if (reply.getString("status").equals("ok")) {
+                sendReply(reply.getString("data"), message);
+            }else if (reply.getString("status").equals("error")) {
+                new SendGroupMessageReply(message.getGroup_id(), message.getMessage_id(), "DMW产生一个意外错误,原因:\n"+reply.getString("data"));
+
+            }
+        } catch (Exception e) {
+            logger.error("处理API响应失败", e);
         }
     }
 
     private void sendReply(String reply, GroupMessage message) {
-        JsonHandler jsonHandler = new JsonHandler(MAX_MESSAGES);
         jsonHandler.appendAssistantMessage(reply, message.getUser_id());
 
         // 语音合成
         if(Config.getInstance().isTTS_STATUS()) {
-            reply = reply.replaceAll("[\\(（][^\\)）]*[\\)）]", "");
+            reply = reply.replaceAll("[(（][^)）]*[)）]", "");
             String audioUrl = TTS.speak(reply, Config.getInstance().getString("TTS_MODEL"));
             new SendGroupMessageRecord().send(message.getGroup_id(), audioUrl);
         } else {

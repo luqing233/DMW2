@@ -9,6 +9,9 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.jetbrains.annotations.Nullable;
+
+import java.io.IOException;
 
 import static fun.luqing.DMW2.logger;
 
@@ -27,20 +30,7 @@ public class ClientRequest {
 
             // 设置请求头
             httpPost.setHeader("Authorization", "Bearer " + apiKey);
-            httpPost.setHeader("Content-Type", "application/json");
-
-            // 设置请求体
-            httpPost.setEntity(new StringEntity(jsonBody, "UTF-8"));
-
-            // 发送请求并获取响应
-            HttpResponse response = httpClient.execute(httpPost);
-            HttpEntity entity = response.getEntity();
-
-            // 解析响应内容
-            if (entity != null) {
-                return EntityUtils.toString(entity);
-            }
-            return null;
+            return getString(jsonBody, httpClient, httpPost);
         } catch (Exception e) {
             logger.error(e.getMessage());
             return "请求失败";
@@ -69,21 +59,26 @@ public class ClientRequest {
                 String finalUrl = url + "?key=" + apiKey;
                 HttpPost httpPost = new HttpPost(finalUrl);
 
-                httpPost.setHeader("Content-Type", "application/json");
-                httpPost.setEntity(new StringEntity(jsonBody, "UTF-8"));
-
-                HttpResponse response = httpClient.execute(httpPost);
-                HttpEntity entity = response.getEntity();
-
-                if (entity != null) {
-                    return EntityUtils.toString(entity);
-                }
-                return null;
+                return getString(jsonBody, httpClient, httpPost);
             }
         } catch (Exception e) {
             logger.error("Gemini 请求失败", e);
             return "请求失败";
         }
+    }
+
+    @Nullable
+    private static String getString(String jsonBody, CloseableHttpClient httpClient, HttpPost httpPost) throws IOException {
+        httpPost.setHeader("Content-Type", "application/json");
+        httpPost.setEntity(new StringEntity(jsonBody, "UTF-8"));
+
+        HttpResponse response = httpClient.execute(httpPost);
+        HttpEntity entity = response.getEntity();
+
+        if (entity != null) {
+            return EntityUtils.toString(entity);
+        }
+        return null;
     }
 
 }

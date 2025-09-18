@@ -1,4 +1,0 @@
-00:40:31.421 [WebSocketConnectReadThread-46] INFO  fun.luqing.DMW2 - [onOpen,80] - [32m连接成功[0m
-00:40:31.425 [main] INFO  fun.luqing.DMW2 - [main,22] - WebSocket 客户端已启动
-00:40:41.108 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: 鹿晴:你好
-00:40:41.748 [pool-3-thread-6] INFO  fun.luqing.DMW2 - [lambda$new$1,21] - ok

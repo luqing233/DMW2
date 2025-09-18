@@ -42,28 +42,37 @@ public class GeminiApi implements ApiInterface {
      * @return 解析后的回复文本，如果解析失败则返回错误提示信息
      */
     @Override
-    public String parseResponse(String response) {
+    public JSONObject parseResponse(String response) {
+        JSONObject result = new JSONObject();
         try {
             JSONObject responseObject = new JSONObject(response);
 
-            System.out.println(responseObject);
-
-            if (responseObject.has("candidates")) {
+            if (responseObject.has("candidates") && !responseObject.isNull("candidates")) {
                 JSONArray candidates = responseObject.getJSONArray("candidates");
                 if (!candidates.isEmpty()) {
                     JSONObject first = candidates.getJSONObject(0);
-                    JSONObject content = first.getJSONObject("content");
-                    JSONArray parts = content.getJSONArray("parts");
-                    if (!parts.isEmpty()) {
-                        return parts.getJSONObject(0).getString("text");
+                    if (first.has("content") && !first.isNull("content")) {
+                        JSONObject content = first.getJSONObject("content");
+                        if (content.has("parts") && !content.isNull("parts")) {
+                            JSONArray parts = content.getJSONArray("parts");
+                            if (!parts.isEmpty() && parts.getJSONObject(0).has("text")) {
+                                result.put("status", "ok");
+                                result.put("data", parts.getJSONObject(0).getString("text"));
+                                return result;
+                            }
+                        }
                     }
                 }
             }
 
-            return "未解析到有效的 Gemini 回复";
+            result.put("status", "error");
+            result.put("data", response);
+            return result;
         } catch (Exception e) {
             logger.error("Gemini 解析失败", e);
-            return "抱歉，处理 Gemini 回复时出错了";
+            result.put("status", "error");
+            result.put("data", e);
+            return result;
         }
     }
 

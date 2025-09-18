@@ -1,26 +1,64 @@
-00:00:05.440 [pool-3-thread-13] INFO  fun.luqing.DMW2 - [lambda$send$1,19] - 发送语音文件 ⌈E:\SoVITS\GPT-SoVITS-0725-cu124\outputs\b5a90e1b3fd2247c1344b27dff3d76ba.wav⌋ 成功
-00:00:22.976 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: [狐言鹿语(688595279)] 鹿晴 ⌈你好⌋
-00:00:22.977 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [sendRequest,19] - 正在由 Gemini API 处理
-00:00:27.797 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [speak,66] - 使用模型 银狼 合成 ⌈你好，鹿晴。你今天还好吗？⌋ 
-00:00:27.801 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [speak,92] - 使用版本 v4 失败，尝试下一个…
-00:00:27.805 [pool-3-thread-11] INFO  fun.luqing.DMW2 - [speak,92] - 使用版本 v2Pro 失败，尝试下一个…
-00:00:34.017 [pool-3-thread-13] INFO  fun.luqing.DMW2 - [lambda$send$1,19] - 发送语音文件 ⌈E:\SoVITS\GPT-SoVITS-0725-cu124\outputs\eee06044c0d2ff0a28f9d0b880094880.wav⌋ 成功
-00:01:27.862 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: [真是核胁犹癌的猫猫群(2169011275)] 凌羽笙 喵~ ⌈别搞啊⌋
-00:01:27.864 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈接下来将由gemini回答，本提示仅在创建上下文记录时提示。如遇意外情况，可使用/clear重置上下文⌋
-00:01:27.867 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [sendRequest,19] - 正在由 Gemini API 处理
-00:01:28.465 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈接下来将由gemini回答，本提示仅在创建上下文记录时提示。如遇意外情况，可使用/clear重置上下文⌋成功
-00:01:35.538 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [speak,66] - 使用模型 银狼 合成 ⌈嗯……凌羽笙，发生什么了吗？别急，我可以帮你想想办法。⌋ 
-00:01:35.542 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [speak,92] - 使用版本 v4 失败，尝试下一个…
-00:01:35.544 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [speak,92] - 使用版本 v2Pro 失败，尝试下一个…
-00:01:43.900 [pool-3-thread-14] INFO  fun.luqing.DMW2 - [lambda$send$1,19] - 发送语音文件 ⌈E:\SoVITS\GPT-SoVITS-0725-cu124\outputs\188d04ed65f37cfd6230ef71dbcdca5e.wav⌋ 成功
-00:02:05.530 [pool-3-thread-13] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: [真是核胁犹癌的猫猫群(2169011275)] 凌羽笙 喵~ ⌈666⌋
-00:02:05.531 [pool-3-thread-13] INFO  fun.luqing.DMW2 - [sendRequest,19] - 正在由 Gemini API 处理
-00:02:16.000 [pool-3-thread-13] INFO  fun.luqing.DMW2 - [speak,66] - 使用模型 银狼 合成 ⌈六六六……嗯，谢谢你。Bronya会继续努力的。⌋ 
-00:02:16.006 [pool-3-thread-13] INFO  fun.luqing.DMW2 - [speak,92] - 使用版本 v4 失败，尝试下一个…
-00:02:16.010 [pool-3-thread-13] INFO  fun.luqing.DMW2 - [speak,92] - 使用版本 v2Pro 失败，尝试下一个…
-00:02:24.594 [pool-3-thread-1] INFO  fun.luqing.DMW2 - [lambda$send$1,19] - 发送语音文件 ⌈E:\SoVITS\GPT-SoVITS-0725-cu124\outputs\9b297cb0f43a90637be50f0be5b1006a.wav⌋ 成功
-00:02:48.152 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [<init>,23] - 消息命中: [真是核胁犹癌的猫猫群(2169011275)] 凌羽笙 喵~ ⌈用QQ漏洞去挖相册权限⌋
-00:02:48.153 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [sendRequest,19] - 正在由 Gemini API 处理
-00:02:54.895 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [speak,66] - 使用模型 银狼 合成 ⌈嗯……凌羽笙，这个……不太好。Bronya不建议这样做，会有风险的。⌋ 
-00:02:54.900 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [speak,92] - 使用版本 v4 失败，尝试下一个…
-00:02:54.903 [pool-3-thread-4] INFO  fun.luqing.DMW2 - [speak,92] - 使用版本 v2Pro 失败，尝试下一个…
+01:04:31.529 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+01:04:31.540 [main] INFO  fun.luqing.DMW2 - [main,15] - WebSocket 客户端已启动
+01:04:39.963 [pool-3-thread-10] INFO  fun.luqing.DMW2 - [<init>,25] - 消息命中: [狐言鹿语(688595279)] 鹿晴 ⌈你好⌋
+01:04:39.969 [pool-3-thread-10] INFO  fun.luqing.DMW2 - [sendRequest,29] - 正在由 Gemini API 处理
+01:04:41.413 [pool-3-thread-10] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈处理错误：{
+  "error": {
+    "code": 400,
+    "message": "User location is not supported for the API use.",
+    "status": "FAILED_PRECONDITION"
+  }
+}
+⌋
+01:04:42.892 [pool-3-thread-3] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈处理错误：{
+  "error": {
+    "code": 400,
+    "message": "User location is not supported for the API use.",
+    "status": "FAILED_PRECONDITION"
+  }
+}
+⌋成功
+01:06:09.849 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+01:06:09.851 [main] INFO  fun.luqing.DMW2 - [main,15] - WebSocket 客户端已启动
+01:06:14.433 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [<init>,25] - 消息命中: [狐言鹿语(688595279)] 鹿晴 ⌈？⌋
+01:06:14.436 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [sendRequest,29] - 正在由 Gemini API 处理
+01:06:15.326 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈原因:
+{
+  "error": {
+    "code": 400,
+    "message": "User location is not supported for the API use.",
+    "status": "FAILED_PRECONDITION"
+  }
+}
+⌋
+01:06:15.907 [pool-3-thread-12] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈原因:
+{
+  "error": {
+    "code": 400,
+    "message": "User location is not supported for the API use.",
+    "status": "FAILED_PRECONDITION"
+  }
+}
+⌋成功
+01:08:16.729 [WebSocketConnectReadThread-32] INFO  fun.luqing.DMW2 - [onOpen,95] - [32m连接成功[0m
+01:08:16.730 [main] INFO  fun.luqing.DMW2 - [main,15] - WebSocket 客户端已启动
+01:08:21.035 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [<init>,25] - 消息命中: [狐言鹿语(688595279)] 鹿晴 ⌈你好？⌋
+01:08:21.038 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [sendRequest,29] - 正在由 Gemini API 处理
+01:08:22.813 [pool-3-thread-5] INFO  fun.luqing.DMW2 - [<init>,11] - 尝试发送回复消息⌈DMW产生一个意外错误,原因:
+{
+  "error": {
+    "code": 400,
+    "message": "User location is not supported for the API use.",
+    "status": "FAILED_PRECONDITION"
+  }
+}
+⌋
+01:08:23.398 [pool-3-thread-12] INFO  fun.luqing.DMW2 - [lambda$new$1,22] - 发送回复消息⌈DMW产生一个意外错误,原因:
+{
+  "error": {
+    "code": 400,
+    "message": "User location is not supported for the API use.",
+    "status": "FAILED_PRECONDITION"
+  }
+}
+⌋成功
