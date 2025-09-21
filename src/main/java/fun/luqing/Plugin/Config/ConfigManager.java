@@ -13,6 +13,21 @@ public class ConfigManager {
 
         if (Objects.equals(message.getText(), "配置帮助")){
 
+            String help =
+                    """
+                    可以使用 修改模型 来修改对话的大语言模型
+                    使用 语音角色 修改语音合成的角色
+                    只有在用户权限大于等于 admin 权级才可以使用该指令
+                    """;
+
+
+            new SendGroupMessageReply(message.getGroup_id(), message.getMessage_id(), "当前配置：\n" +
+                    "模型：" + cfg.getString("AI_MODEL") + "\n" +
+                    "语音角色：" + cfg.getString("TTS_MODEL") + "\n" +
+                    "TTS状态：" + cfg.isTTS_STATUS() + "\n" +
+                    help);
+
+
         }
 
         if (message.getText().startsWith("修改模型 ")&&cfg.isMaster(message.getUser_id())){

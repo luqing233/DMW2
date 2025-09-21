@@ -1,9 +1,11 @@
 package fun.luqing.Plugin.Chat;
 
+import fun.luqing.ApiConnector.Message.GroupChat.SendGroupMessage;
 import fun.luqing.ApiConnector.Message.GroupChat.SendGroupMessageReply;
 import fun.luqing.Config.Config;
 import fun.luqing.Utils.FileManage.FileUtil;
 import fun.luqing.Utils.Message.GroupMessage;
+import fun.luqing.Utils.Message.Notice;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -44,6 +46,34 @@ public class JsonHandler {
         fileUtil.writeJsonFile(filename, jsonObject);
         return jsonObject;
     }
+
+
+    public JSONObject buildUserMessageJson(Notice notice, String nickname , String text) {
+        String filename = notice.getUser_id() + ".json";
+        FileUtil fileUtil = new FileUtil(directoryPath);
+        JSONObject jsonObject = fileUtil.readJsonFile(filename);
+
+        if (jsonObject == null) {
+            new SendGroupMessage(notice.getGroup_id(),
+                    "接下来将由" + Config.getInstance().getString("AI_MODEL") + "回答，本提示仅在创建上下文记录时提示。如遇意外情况，可使用/clear重置上下文");
+            jsonObject = buildInitialJson(nickname);
+            fileUtil.writeJsonFile(filename, jsonObject);
+        }
+
+        // 添加用户消息
+        JSONArray messages = jsonObject.getJSONArray("messages");
+        if (Objects.equals(text, "")) {
+            addMessage(messages, "user",
+                    "[" + notice.getTime() + "] (此处用户发送了一个空白符号，意思是什么话都没说)", nickname);
+        } else {
+            addMessage(messages, "user",
+                    "[" + notice.getTime() + "] " + text, nickname);
+        }
+        trimMessages(messages);
+        fileUtil.writeJsonFile(filename, jsonObject);
+        return jsonObject;
+    }
+
 
     private JSONObject buildInitialJson(String nickname) {
         JSONObject jsonObject = new JSONObject();

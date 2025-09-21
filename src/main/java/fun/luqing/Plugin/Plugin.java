@@ -2,6 +2,7 @@ package fun.luqing.Plugin;
 
 import fun.luqing.Plugin.Chat.Chat;
 import fun.luqing.Plugin.Config.ConfigManager;
+import fun.luqing.Plugin.DMPoke.DMPoke;
 import fun.luqing.Plugin.Music.Music;
 import fun.luqing.Plugin.PublicDMW.GrantTitle;
 import fun.luqing.Plugin.PublicDMW.Pool;
@@ -26,7 +27,10 @@ public class Plugin {
 
         // notice 消息
         if (msg.has("post_type") && msg.getString("post_type").equals("notice")) {
-            plugins.add(() -> new Notice(msg));
+            Notice notice = new Notice(msg);
+
+            plugins.add(() -> new  DMPoke(notice));
+
         }
 
         // group 消息
